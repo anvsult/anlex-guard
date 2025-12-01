@@ -140,27 +140,31 @@ class AdafruitService:
             value: Value to publish
         """
         if not self._connected:
-            logger.debug("Adafruit IO not connected, skipping publish")
-            return
+            logger.warning(f"Adafruit IO not connected, cannot publish to {feed_name}")
+            return False
         
         feed_key = self.feeds.get(feed_name)
         if not feed_key:
             logger.warning(f"Unknown feed: {feed_name}")
-            return
+            return False
         
         try:
             topic = f"{self.username}/feeds/{feed_key}"
             payload = json.dumps({"value": value})
             
+            logger.info(f"Publishing to Adafruit IO - Feed: {feed_name}, Topic: {topic}, Value: {value}")
             result = self.client.publish(topic, payload=payload, qos=1)
             
             if result.rc == mqtt.MQTT_ERR_SUCCESS:
-                logger.debug(f"Published to {feed_name}: {value}")
+                logger.info(f"Successfully published to {feed_name}: {value}")
+                return True
             else:
-                logger.warning(f"Publish failed: rc={result.rc}")
+                logger.error(f"Publish failed - Feed: {feed_name}, RC: {result.rc}")
+                return False
                 
         except Exception as e:
-            logger.error(f"MQTT publish error: {e}")
+            logger.error(f"MQTT publish error for {feed_name}: {e}", exc_info=True)
+            return False
     
     def upload_photo(self, filename: str, filepath: Path):
         """

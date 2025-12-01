@@ -38,14 +38,22 @@ def init_cloud_services():
         "stealth_mode": os.getenv('FEED_STEALTH', 'control.stealth'),
     }
     
+    logger.info(f"Initializing Adafruit IO connection for user: {username}")
+    logger.info(f"Feed configuration: {feeds}")
+    
     # Initialize Adafruit service (no control callback needed for cloud-only deployment)
     adafruit = AdafruitService(username, key, feeds, control_callback=None)
     
     # Connect to Adafruit IO MQTT broker
     adafruit.connect()
     
+    # Give connection a moment to establish (async connection)
+    import time
+    time.sleep(2)
+    
     logger.info("Cloud services initialized successfully")
     logger.info(f"Connected to Adafruit IO as {username}")
+    logger.info(f"MQTT connection state: {'Connected' if adafruit._connected else 'Connecting...'}")
     logger.info("All actuator commands will be published to Adafruit IO feeds")
     return True
 
@@ -206,6 +214,7 @@ def register_cloud_routes(app):
         """Control buzzer via Adafruit IO feed"""
         try:
             if not adafruit:
+                logger.error("Buzzer control failed: Adafruit IO not initialized")
                 return jsonify({"error": "Adafruit IO not initialized"}), 503
             
             data = request.json or {}
@@ -214,17 +223,28 @@ def register_cloud_routes(app):
             # Valid actions: on, off, beep, beep-twice, siren
             valid_actions = ['on', 'off', 'beep', 'beep-twice', 'siren', 'stop', '1', '0']
             if action not in valid_actions:
+                logger.warning(f"Invalid buzzer action attempted: {action}")
                 return jsonify({"error": f"Invalid action. Valid: {valid_actions}"}), 400
             
+            # Check MQTT connection status
+            connection_status = "Connected" if adafruit._connected else "Disconnected"
+            logger.info(f"Buzzer control request - Action: {action}, MQTT Status: {connection_status}")
+            
             # Publish to Adafruit IO - Raspberry Pi will receive and execute
+            feed_key = adafruit.feeds.get('buzzer_control')
+            logger.info(f"Publishing to feed: buzzer_control (key: {feed_key})")
             adafruit.publish('buzzer_control', action)
             logger.info(f"Buzzer control command published to Adafruit IO: {action}")
             
             return jsonify({
                 "success": True, 
                 "action": action,
-                "message": "Command sent to Adafruit IO feed 'buzzer_control'"
+                "message": f"Command sent to Adafruit IO feed 'buzzer_control' (MQTT: {connection_status})"
             })
+        except Exception as e:
+            logger.error(f"Buzzer control error: {e}", exc_info=True)
+            return jsonify({"error": str(e)}), 500
+
         except Exception as e:
             logger.error(f"Buzzer control error: {e}")
             return jsonify({"error": str(e)}), 500
@@ -352,15 +372,57 @@ def register_cloud_routes(app):
             logger.error(f"Logs API error: {e}")
             return jsonify({"error": str(e), "logs": []})
     
+    # ==================== SETTINGS ====================
+    
+    @app.route('/api/settings', methods=['GET'])
+    def api_get_settings():
+        """Get current settings (returns defaults for cloud deployment)"""
+        try:
+            # For cloud deployment, return default settings
+            # Settings are managed on the Raspberry Pi side
+            settings = {
+                "pre_alarm_delay_seconds": int(os.getenv('PRE_ALARM_DELAY', 30)),
+                "alarm_duration_seconds": int(os.getenv('ALARM_DURATION', 180)),
+                "motion_timeout_seconds": int(os.getenv('MOTION_TIMEOUT', 60)),
+                "photo_interval_seconds": int(os.getenv('PHOTO_INTERVAL', 5))
+            }
+            return jsonify({
+                "success": True,
+                "settings": settings,
+                "note": "Settings are managed on the Raspberry Pi. Changes here are for display only."
+            })
+        except Exception as e:
+            logger.error(f"Get settings error: {e}")
+            return jsonify({"error": str(e)}), 500
+    
+    @app.route('/api/settings', methods=['POST'])
+    def api_save_settings():
+        """Save settings (not supported in cloud-only mode)"""
+        try:
+            # Settings cannot be saved in cloud-only mode
+            # They must be configured on the Raspberry Pi
+            logger.warning("Settings save attempted in cloud-only mode")
+            return jsonify({
+                "success": False,
+                "message": "Settings cannot be saved in cloud-only mode. Configure settings on the Raspberry Pi.",
+                "note": "Settings are stored in config/config.json on the Raspberry Pi."
+            }), 501
+        except Exception as e:
+            logger.error(f"Save settings error: {e}", exc_info=True)
+            return jsonify({"error": str(e)}), 500
+    
     # ==================== HEALTH CHECK ====================
     
     @app.route('/api/health')
     def api_health():
         """Health check endpoint"""
+        mqtt_connected = adafruit._connected if adafruit else False
         return jsonify({
             "status": "healthy",
             "service": "AnLex Guard Cloud API",
-            "adafruit_connected": adafruit is not None
+            "adafruit_initialized": adafruit is not None,
+            "mqtt_connected": mqtt_connected,
+            "feeds_configured": len(adafruit.feeds) if adafruit else 0
         })
     
     logger.info("Cloud API routes registered")

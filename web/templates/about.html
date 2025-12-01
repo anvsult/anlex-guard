@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - AnLex Guard</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --panel: #121825;
+        --panel-2: #0f1420;
+        --text: #e6edf3;
+        --muted: #8ea0b6;
+        --brand: #6aa3ff;
+        --ok: #2ecc71;
+        --warn: #f1c40f;
+        --err: #e74c3c;
+        --card: #162134;
+        --border: #213046;
+        --radius: 16px;
+        --radius-sm: 12px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      * { box-sizing: border-box; }
+      html, body { min-height: 100%; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, var(--bg), #0a0d12 40%, #06080c);
+        color: var(--text);
+        font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Inter, Arial;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: radial-gradient(circle at 30% 30%, var(--brand), transparent 40%), linear-gradient(145deg, #1f2b40, #0e1726);
+        box-shadow: inset 0 0 0 1px var(--border), var(--shadow);
+      }
+      h1 { font-size: 20px; margin: 0; }
+      .sub { color: var(--muted); font-size: 13px; }
+
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        padding: 10px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.15s;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: #2b3a52;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, rgba(106, 163, 255, 0.05), rgba(106, 163, 255, 0.02));
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+      }
+      .hero h2 {
+        font-size: 42px;
+        margin: 0 0 16px 0;
+        background: linear-gradient(135deg, #6aa3ff, #8ec5ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero p {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .section {
+        margin-bottom: 50px;
+      }
+      .section h3 {
+        font-size: 28px;
+        margin: 0 0 20px 0;
+        color: var(--text);
+      }
+      .section p {
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .feature-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+      .feature-item h4 {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        color: var(--brand);
+      }
+      .feature-item p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .team {
+        margin-top: 40px;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .team-member {
+        text-align: center;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 30px 20px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s;
+      }
+      .team-member:hover {
+        transform: translateY(-5px);
+      }
+      .team-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 16px;
+        background: linear-gradient(135deg, #1f2b40, #0e1726);
+        border: 3px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: var(--brand);
+        overflow: hidden;
+      }
+      .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .team-member h4 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        color: var(--text);
+      }
+      .team-member p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 80px;
+        padding: 30px 20px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      footer p {
+        margin: 8px 0;
+      }
+      .copyright {
+        margin-top: 20px;
+        font-size: 13px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="brand">
+                <div class="logo"></div>
+                <div>
+                    <h1>AnLex Guard</h1>
+                    <div class="sub">About This Project</div>
+                </div>
+            </a>
+            <div>
+                <a href="/" class="btn">← Back to Dashboard</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h2>AnLex Guard</h2>
+            <p>
+                A professional-grade Raspberry Pi based home security system with motion detection, 
+                RFID access control, environmental monitoring, and real-time alerts.
+            </p>
+        </div>
+
+        <div class="section">
+            <h3>Project Overview</h3>
+            <p>
+                AnLex Guard is a comprehensive home security solution built using Raspberry Pi and various sensors. 
+                The system provides multi-mode operation (DISARMED, ARMED, PRE-ALARM, ALARM states) with intelligent 
+                motion detection, RFID-based access control, and environmental monitoring capabilities.
+            </p>
+            <p>
+                Designed with both security and user experience in mind, AnLex Guard features a modern web dashboard 
+                for real-time monitoring and control, cloud integration with Adafruit IO for data logging, 
+                and instant email notifications through Brevo when security events occur.
+            </p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <h4>🔐 Multi-Mode Security</h4>
+                    <p>Intelligent state machine with DISARMED, ARMED, PRE-ALARM, and ALARM modes for comprehensive protection.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎥 Motion Detection</h4>
+                    <p>PIR sensor with configurable sensitivity and automatic photo capture on motion events.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>💳 RFID Access</h4>
+                    <p>Contactless access control with support for multiple authorized RFID keys.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🌡️ Environmental Monitoring</h4>
+                    <p>Real-time temperature and humidity tracking with historical data visualization.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>☁️ Cloud Integration</h4>
+                    <p>Seamless integration with Adafruit IO for real-time data logging and remote monitoring.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 Web Dashboard</h4>
+                    <p>Responsive web interface for live monitoring, control, and configuration from any device.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section team">
+            <h3>Meet the Team</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/static/images/team/member-anvar.jpeg" alt="Anvar Sultanov" onerror="this.parentElement.innerHTML='👤'">
+                    </div>
+                    <h4>Anvar Sultanov</h4>
+                    <p>Hardware Engineer + Developer</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/static/images/team/member2.jpg" alt="Alejandro Marquez Vega" onerror="this.parentElement.innerHTML='👤'">
+                    </div>
+                    <h4>Alejandro Marquez Vega</h4>
+                    <p>Hardware Engineer + Developer</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>AnLex Guard - Professional Home Security System</p>
+            <p>Built with ❤️ using Raspberry Pi, Python, Flask, and modern web technologies</p>
+            <div class="copyright">
+                <p>Copyright &copy; 2025 AnLex Guard Team. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

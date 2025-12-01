@@ -261,7 +261,18 @@ class SecurityStateMachine:
             # Convert value to appropriate type
             value = str(value).strip().lower()
             
-            if feed_name == 'led_control':
+            if feed_name == 'mode':
+                # System mode control: armed, disarmed
+                if value in ['armed', 'arm', '1']:
+                    self.arm_system(source="Adafruit IO")
+                    logger.info("System ARMED via Adafruit IO")
+                    self._log_event("ARM", "Remote control via Adafruit IO")
+                elif value in ['disarmed', 'disarm', '0']:
+                    self.disarm_system(source="Adafruit IO")
+                    logger.info("System DISARMED via Adafruit IO")
+                    self._log_event("DISARM", "Remote control via Adafruit IO")
+            
+            elif feed_name == 'led_control':
                 # LED control: on, off, blink, blink-fast
                 if value in ['1', 'on', 'true']:
                     self.led.on()

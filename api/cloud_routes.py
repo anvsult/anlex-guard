@@ -1,6 +1,6 @@
 """
 Cloud-based API Routes - Works without hardware
-Communicates directly with Adafruit IO via HTTP
+All actuator control happens via Adafruit IO MQTT feeds
 For deployment on Render.com or similar platforms
 """
 import logging
@@ -22,6 +22,7 @@ def init_cloud_services():
     
     if not username or not key:
         logger.error("Adafruit IO credentials not found in environment variables")
+        logger.error("Please set ADAFRUIT_IO_USERNAME and ADAFRUIT_IO_KEY environment variables")
         return False
     
     feeds = {
@@ -37,9 +38,24 @@ def init_cloud_services():
         "stealth_mode": os.getenv('FEED_STEALTH', 'control.stealth'),
     }
     
-    adafruit = AdafruitService(username, key, feeds)
+    # Initialize Adafruit service (no control callback needed for cloud-only deployment)
+    adafruit = AdafruitService(username, key, feeds, control_callback=None)
+    
+    # Connect to Adafruit IO MQTT broker
+    adafruit.connect()
+    
     logger.info("Cloud services initialized successfully")
+    logger.info(f"Connected to Adafruit IO as {username}")
+    logger.info("All actuator commands will be published to Adafruit IO feeds")
     return True
+
+def shutdown_cloud_services():
+    """Shutdown cloud services gracefully"""
+    global adafruit
+    if adafruit:
+        logger.info("Disconnecting from Adafruit IO...")
+        adafruit.disconnect()
+        logger.info("Cloud services shutdown complete")
 
 def register_cloud_routes(app):
     """Register cloud-only API routes"""
@@ -96,9 +112,18 @@ def register_cloud_routes(app):
     def api_arm():
         """Arm the security system via Adafruit IO"""
         try:
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            # Publish to Adafruit IO - Raspberry Pi will receive and arm the system
             adafruit.publish('mode', 'armed')
-            logger.info("System armed via cloud")
-            return jsonify({"success": True, "mode": "armed"})
+            logger.info("System arm command published to Adafruit IO")
+            
+            return jsonify({
+                "success": True, 
+                "mode": "armed",
+                "message": "Arm command sent to Adafruit IO feed 'mode'"
+            })
         except Exception as e:
             logger.error(f"Arm API error: {e}")
             return jsonify({"error": str(e)}), 500
@@ -107,9 +132,18 @@ def register_cloud_routes(app):
     def api_disarm():
         """Disarm the security system via Adafruit IO"""
         try:
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            # Publish to Adafruit IO - Raspberry Pi will receive and disarm the system
             adafruit.publish('mode', 'disarmed')
-            logger.info("System disarmed via cloud")
-            return jsonify({"success": True, "mode": "disarmed"})
+            logger.info("System disarm command published to Adafruit IO")
+            
+            return jsonify({
+                "success": True, 
+                "mode": "disarmed",
+                "message": "Disarm command sent to Adafruit IO feed 'mode'"
+            })
         except Exception as e:
             logger.error(f"Disarm API error: {e}")
             return jsonify({"error": str(e)}), 500
@@ -118,13 +152,21 @@ def register_cloud_routes(app):
     def api_stealth():
         """Toggle stealth mode via Adafruit IO"""
         try:
-            data = request.json
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            data = request.json or {}
             enabled = data.get('enabled', False)
             
+            # Publish to Adafruit IO - Raspberry Pi will receive and set stealth mode
             adafruit.publish('stealth_mode', '1' if enabled else '0')
-            logger.info(f"Stealth mode {'enabled' if enabled else 'disabled'} via cloud")
+            logger.info(f"Stealth mode {'enabled' if enabled else 'disabled'} command published to Adafruit IO")
             
-            return jsonify({"success": True, "stealth": enabled})
+            return jsonify({
+                "success": True, 
+                "stealth": enabled,
+                "message": f"Stealth mode {'enabled' if enabled else 'disabled'} command sent to Adafruit IO"
+            })
         except Exception as e:
             logger.error(f"Stealth API error: {e}")
             return jsonify({"error": str(e)}), 500
@@ -133,50 +175,100 @@ def register_cloud_routes(app):
     
     @app.route('/api/control/led', methods=['POST'])
     def api_control_led():
-        """Control LED via Adafruit IO"""
+        """Control LED via Adafruit IO feed"""
         try:
-            data = request.json
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            data = request.json or {}
             action = data.get('action', 'blink-fast')
             
-            adafruit.publish('led_control', action)
-            logger.info(f"LED control: {action}")
+            # Valid actions: on, off, blink, blink-fast
+            valid_actions = ['on', 'off', 'blink', 'blink-fast', '1', '0']
+            if action not in valid_actions:
+                return jsonify({"error": f"Invalid action. Valid: {valid_actions}"}), 400
             
-            return jsonify({"success": True, "action": action})
+            # Publish to Adafruit IO - Raspberry Pi will receive and execute
+            adafruit.publish('led_control', action)
+            logger.info(f"LED control command published to Adafruit IO: {action}")
+            
+            return jsonify({
+                "success": True, 
+                "action": action,
+                "message": "Command sent to Adafruit IO feed 'led_control'"
+            })
         except Exception as e:
             logger.error(f"LED control error: {e}")
             return jsonify({"error": str(e)}), 500
     
     @app.route('/api/control/buzzer', methods=['POST'])
     def api_control_buzzer():
-        """Control buzzer via Adafruit IO"""
+        """Control buzzer via Adafruit IO feed"""
         try:
-            data = request.json
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            data = request.json or {}
             action = data.get('action', 'beep')
             
-            adafruit.publish('buzzer_control', action)
-            logger.info(f"Buzzer control: {action}")
+            # Valid actions: on, off, beep, beep-twice, siren
+            valid_actions = ['on', 'off', 'beep', 'beep-twice', 'siren', 'stop', '1', '0']
+            if action not in valid_actions:
+                return jsonify({"error": f"Invalid action. Valid: {valid_actions}"}), 400
             
-            return jsonify({"success": True, "action": action})
+            # Publish to Adafruit IO - Raspberry Pi will receive and execute
+            adafruit.publish('buzzer_control', action)
+            logger.info(f"Buzzer control command published to Adafruit IO: {action}")
+            
+            return jsonify({
+                "success": True, 
+                "action": action,
+                "message": "Command sent to Adafruit IO feed 'buzzer_control'"
+            })
         except Exception as e:
             logger.error(f"Buzzer control error: {e}")
             return jsonify({"error": str(e)}), 500
     
     @app.route('/api/control/servo', methods=['POST'])
     def api_control_servo():
-        """Control servo via Adafruit IO"""
+        """Control servo via Adafruit IO feed"""
         try:
-            data = request.json
+            if not adafruit:
+                return jsonify({"error": "Adafruit IO not initialized"}), 503
+            
+            data = request.json or {}
             action = data.get('action')
             
+            # Valid actions: lock, unlock
             if action not in ['lock', 'unlock']:
                 return jsonify({"error": "Invalid action. Use 'lock' or 'unlock'"}), 400
             
+            # Publish to Adafruit IO - Raspberry Pi will receive and execute
             adafruit.publish('servo_control', action)
-            logger.info(f"Servo control: {action}")
+            logger.info(f"Servo control command published to Adafruit IO: {action}")
             
-            return jsonify({"success": True, "action": action})
+            return jsonify({
+                "success": True, 
+                "action": action,
+                "message": "Command sent to Adafruit IO feed 'servo_control'"
+            })
         except Exception as e:
             logger.error(f"Servo control error: {e}")
+            return jsonify({"error": str(e)}), 500
+    
+    @app.route('/api/control/camera', methods=['POST'])
+    def api_control_camera():
+        """Request camera capture via Adafruit IO (not available in cloud-only mode)"""
+        try:
+            # Note: Camera capture is handled by the Raspberry Pi hardware
+            # This endpoint is here for API compatibility but doesn't do anything in cloud mode
+            logger.warning("Camera capture requested in cloud-only mode - not available")
+            return jsonify({
+                "success": False, 
+                "message": "Camera control not available in cloud-only deployment"
+            }), 501
+        except Exception as e:
+            logger.error(f"Camera control error: {e}")
             return jsonify({"error": str(e)}), 500
     
     # ==================== HISTORICAL DATA (from Adafruit IO) ====================

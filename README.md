@@ -2,12 +2,23 @@
 
 Home security system with cloud dashboard deployment.
 
+> **🌟 NEW**: Full cloud deployment support with Adafruit IO MQTT integration for remote actuator control from Render.com!
+
 ## Architecture
 
 - **Raspberry Pi**: Runs hardware sensors/actuators, communicates with Adafruit IO via MQTT
-- **Adafruit IO**: Cloud IoT platform for data sync and device control
-- **Flask App (Cloud)**: Web dashboard deployed on Render.com, communicates with Adafruit IO via HTTP
+- **Adafruit IO**: Cloud IoT platform for data sync and device control (MQTT for real-time bidirectional communication)
+- **Flask App (Cloud)**: Web dashboard deployed on Render.com, controls hardware via Adafruit IO feeds
 - **NEON Database** (optional): PostgreSQL for historical data storage
+
+### How It Works
+```
+Dashboard (Render.com) → Adafruit IO MQTT → Raspberry Pi → Hardware
+      ↑                                                          ↓
+      └────────────── Status Updates ──────────────────────────┘
+```
+
+All actuator controls (LED, Buzzer, Servo, Arm/Disarm) are sent through Adafruit IO feeds, enabling remote control of the Raspberry Pi hardware from anywhere in the world.
 
 ## Quick Start
 
@@ -32,14 +43,17 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
 ## Features
 
-- 🌡️ **Environmental Monitoring**: Temperature and humidity tracking
-- 🚨 **Motion Detection**: PIR sensor with alarm system
+- 🌡️ **Environmental Monitoring**: Temperature and humidity tracking via DHT sensor
+- 🚨 **Motion Detection**: PIR sensor with configurable alarm system
 - 🔒 **Smart Lock**: Servo-controlled locking mechanism
-- 📸 **Surveillance**: Camera integration (Raspberry Pi only)
-- 🌐 **Cloud Dashboard**: Access from anywhere via web interface
-- 📊 **Historical Data**: Charts and analytics
+- 📸 **Surveillance**: Camera integration for photo capture (Raspberry Pi only)
+- 🌐 **Cloud Dashboard**: Access system from anywhere via web interface
+- 📊 **Historical Data**: Charts and analytics via Adafruit IO
 - 🔔 **Alerts**: Email notifications via Brevo
-- 🎚️ **Remote Control**: LED, buzzer, servo control via Adafruit IO
+- 🎚️ **Remote Control**: LED, buzzer, servo control via Adafruit IO MQTT feeds
+- 🔐 **RFID Access**: Arm/disarm system using authorized RFID tags
+- 🤫 **Stealth Mode**: Silent operation with LED indicators disabled
+- 📡 **Bidirectional Control**: Control from cloud dashboard OR local RFID tags
 
 ## File Structure
 
@@ -126,12 +140,18 @@ python main.py
 
 ## Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment instructions for:
-- Raspberry Pi setup
-- Render.com deployment
+See **[CLOUD_DEPLOYMENT.md](CLOUD_DEPLOYMENT.md)** for complete guide on:
+- Cloud deployment architecture with Adafruit IO MQTT
+- Setting up Raspberry Pi with hardware
+- Deploying dashboard to Render.com
+- Configuring Adafruit IO feeds for actuator control
+- Environment variables and security
+- Troubleshooting common issues
+
+Also see [DEPLOYMENT.md](DEPLOYMENT.md) for additional deployment options including:
 - NEON.com database integration
-- Environment variables
-- Troubleshooting
+- Alternative cloud platforms
+- Advanced configuration
 
 ## License
 

@@ -1,0 +1,25 @@
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+Werkzeug==3.0.1
+
+# MQTT & IoT
+paho-mqtt==1.6.1
+requests==2.31.0
+
+# Raspberry Pi GPIO
+gpiozero==2.0
+RPi.GPIO==0.7.1
+
+# Sensors
+adafruit-circuitpython-dht==4.0.2
+
+# RFID
+mfrc522==0.0.7
+
+# Camera
+opencv-python==4.10.0.84
+numpy==1.26.4
+
+# Environment Management
+python-dotenv==1.0.0

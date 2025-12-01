@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnLex Guard - Home Security System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --panel: #121825;
+        --panel-2: #0f1420;
+        --text: #e6edf3;
+        --muted: #8ea0b6;
+        --brand: #6aa3ff;
+        --ok: #2ecc71;
+        --warn: #f1c40f;
+        --err: #e74c3c;
+        --card: #162134;
+        --border: #213046;
+        --radius: 16px;
+        --radius-sm: 12px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, var(--bg), #0a0d12 40%, #06080c);
+        color: var(--text);
+        font: 500 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Inter, Arial;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: radial-gradient(circle at 30% 30%, var(--brand), transparent 40%), linear-gradient(145deg, #1f2b40, #0e1726);
+        box-shadow: inset 0 0 0 1px var(--border), var(--shadow);
+      }
+      h1 { font-size: 20px; margin: 0; }
+      .sub { color: var(--muted); font-size: 13px; }
+
+      .top-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        padding: 10px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.15s;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+        border-color: #2b3a52;
+      }
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .btn.primary {
+        background: linear-gradient(180deg, #2d5a3d, #1a3424);
+        border-color: #3d7a4f;
+      }
+      .btn.danger {
+        background: linear-gradient(180deg, #5a2d2d, #3a1414);
+        border-color: #7a3d3d;
+      }
+      .btn.armed {
+        background: linear-gradient(180deg, #1b2740, #0f1930);
+        border-color: #2c3f66;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 16px;
+      }
+      .card {
+        grid-column: span 12;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .card .hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--panel), var(--panel-2)) border-box;
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+      }
+      .card .hd h2 { font-size: 15px; margin: 0; }
+      .card .bd { padding: 16px; }
+
+      @media (min-width: 720px) {
+        .span-3 { grid-column: span 3; }
+        .span-4 { grid-column: span 4; }
+        .span-5 { grid-column: span 5; }
+        .span-6 { grid-column: span 6; }
+        .span-7 { grid-column: span 7; }
+        .span-8 { grid-column: span 8; }
+      }
+
+      .status {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--warn);
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .dot.ok { background: var(--ok); animation: none; }
+      .dot.err { background: var(--err); }
+      .dot.idle { background: #4a5568; animation: none; }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      .kv {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 0;
+      }
+      .kv .k { color: var(--muted); font-size: 13px; }
+      .kv .v {
+        font-feature-settings: "tnum" 1;
+        letter-spacing: 0.2px;
+        font-size: 15px;
+      }
+
+      .pill {
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .pill.disarmed {
+        background: #2a3d2a;
+        border-color: #3d5a3d;
+        color: #4ade80;
+      }
+      .pill.armed {
+        background: #2a3550;
+        border-color: #3d5277;
+        color: #6aa3ff;
+      }
+      .pill.pre_alarm {
+        background: #4d3d2a;
+        border-color: #6b5a3d;
+        color: #fbbf24;
+      }
+      .pill.alarm {
+        background: #4d2a2a;
+        border-color: #6b3d3d;
+        color: #f87171;
+      }
+
+      .camera-view {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #0f1624;
+        border: 1px solid var(--border);
+      }
+      .camera-view img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .camera-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        text-align: center;
+        background: repeating-linear-gradient(135deg, #0f1624 0 12px, #0e1420 12px 24px);
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      .log-container {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--panel-2);
+      }
+      .log-entry {
+        display: grid;
+        grid-template-columns: 140px 160px 1fr;
+        gap: 12px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        align-items: center;
+      }
+      .log-entry:last-child { border-bottom: none; }
+      .log-entry .time {
+        color: var(--muted);
+        font-feature-settings: "tnum" 1;
+      }
+      .log-entry .type {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      .log-entry.ARM .type { color: var(--brand); }
+      .log-entry.DISARM .type { color: var(--ok); }
+      .log-entry.MOTION_DETECTED .type { color: var(--warn); }
+      .log-entry.ALARM_TRIGGERED .type { color: var(--err); }
+      .log-entry .details { color: var(--text); }
+
+      .stack { display: grid; gap: 12px; }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .temp-display {
+        font-size: 32px;
+        font-weight: 700;
+        font-feature-settings: "tnum" 1;
+        color: var(--brand);
+        margin: 8px 0;
+      }
+      .temp-unit {
+        font-size: 18px;
+        color: var(--muted);
+        margin-left: 4px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      .gallery-item {
+        aspect-ratio: 4/3;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        transition: 0.2s;
+      }
+      .gallery-item:hover {
+        transform: scale(1.05);
+        border-color: var(--brand);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .modal.show { display: flex; }
+      .modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        background: var(--card);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        overflow: auto;
+        padding: 20px;
+      }
+      .modal-content img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(90vh - 100px);
+      }
+      .modal-header {
+        padding: 0 0 16px 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .modal-close {
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--muted);
+        background: none;
+        border: none;
+        padding: 0;
+        line-height: 1;
+      }
+
+      .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+        padding: 16px 0;
+      }
+
+      .date-selector {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+      .date-selector label {
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .date-selector input[type="date"],
+      .date-selector input[type="time"] {
+        background: var(--panel-2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: var(--text);
+        font-size: 13px;
+        min-width: 120px;
+      }
+      .date-selector input[type="time"] { min-width: 90px; }
+      .date-selector input::-webkit-calendar-picker-indicator {
+        filter: invert(0.7);
+        cursor: pointer;
+      }
+      .date-group {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .input-group {
+        display: grid;
+        gap: 6px;
+      }
+      .input-group label {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .input-group input[type="number"] {
+        background: var(--panel-2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: var(--text);
+        font-size: 14px;
+        width: 100%;
+      }
+
+      footer {
+        margin: 48px 0 24px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo"></div>
+                <div>
+                    <h1>AnLex Guard</h1>
+                    <div class="sub">Home Security System</div>
+                </div>
+            </div>
+            <div class="top-actions">
+                <a href="/about" class="btn">ℹ️ About Us</a>
+                <button class="btn primary" id="btn-arm" onclick="armSystem()">🛡️ Arm System</button>
+                <button class="btn danger" id="btn-disarm" onclick="disarmSystem()" style="display:none;">🔓 Disarm System</button>
+                <button class="btn armed" id="btn-stealth" onclick="toggleStealth()"><span id="stealth-icon">🌙</span> <span id="stealth-text">Enable</span> Stealth</button>
+            </div>
+        </header>
+
+        <div class="grid">
+            <!-- System Status -->
+            <div class="card span-4">
+                <div class="hd">
+                    <h2>System Status</h2>
+                    <span class="pill disarmed" id="mode-pill">DISARMED</span>
+                </div>
+                <div class="bd">
+                    <div class="status">
+                        <div class="badge">
+                            <div class="dot ok" id="conn-dot"></div>
+                            <span id="conn-text">Connected</span>
+                        </div>
+                        <div class="badge">
+                            <span id="mode-text">Disarmed</span>
+                        </div>
+                    </div>
+                    <div class="kv">
+                        <div class="k">Box Status</div>
+                        <div class="v" id="box-status">Unlocked</div>
+                    </div>
+                    <div class="kv">
+                        <div class="k">Last Updated</div>
+                        <div class="v" id="last-updated">--:--:--</div>
+                    </div>
+                    <div class="kv">
+                        <div class="k">Recent Activity</div>
+                        <div class="v" id="last-activity">Waiting...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environment -->
+            <div class="card span-4">
+                <div class="hd">
+                    <h2>Environment</h2>
+                </div>
+                <div class="bd">
+                    <div class="kv">
+                        <div class="k">Temperature</div>
+                        <div class="v"><span id="temp-value">--</span>°C</div>
+                    </div>
+                    <div class="kv">
+                        <div class="k">Humidity</div>
+                        <div class="v" id="hum-value">--%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card span-4">
+                <div class="hd">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="bd">
+                    <div class="actions">
+                        <button class="btn" onclick="testActuator('led')">💡 Test LED</button>
+                        <button class="btn" onclick="testActuator('buzzer')">🔔 Test Buzzer</button>
+                        <button class="btn" id="servo-toggle-btn" onclick="toggleServo()"><span id="servo-icon">🔓</span> <span id="servo-text">Lock Servo</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Snapshot -->
+            <div class="card span-6">
+                <div class="hd">
+                    <h2>Latest Snapshot</h2>
+                    <span class="badge" id="photo-count">0 Photos</span>
+                </div>
+                <div class="bd">
+                    <div class="camera-view" id="camera-container">
+                        <div class="camera-placeholder">
+                            📷<br>No snapshot available
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn" onclick="capturePhoto()">📸 Capture Now</button>
+                        <button class="btn" onclick="refreshCamera()">🔄 Refresh</button>
+                        <button class="btn" onclick="openGallery()">🖼️ View Gallery</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Log -->
+            <div class="card span-6">
+                <div class="hd">
+                    <h2>Event Log</h2>
+                </div>
+                <div class="bd">
+                    <div class="log-container" id="log-container">
+                        <div style="padding: 20px; text-align: center; color: var(--muted);">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temperature & Humidity Chart -->
+            <div class="card span-6">
+                <div class="hd">
+                    <h2>Temperature & Humidity</h2>
+                </div>
+                <div class="bd">
+                    <div class="date-selector">
+                        <div class="date-group">
+                            <label>From:</label>
+                            <input type="date" id="temp-date-start">
+                            <input type="time" id="temp-time-start">
+                        </div>
+                        <div class="date-group">
+                            <label>To:</label>
+                            <input type="date" id="temp-date-end">
+                            <input type="time" id="temp-time-end">
+                        </div>
+                        <button class="btn" onclick="updateTempHumChart()">📊 Load Data</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="temp-hum-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motion Detection Chart -->
+            <div class="card span-6">
+                <div class="hd">
+                    <h2>Motion Detection History</h2>
+                </div>
+                <div class="bd">
+                    <div class="date-selector">
+                        <div class="date-group">
+                            <label>From:</label>
+                            <input type="date" id="motion-date-start">
+                            <input type="time" id="motion-time-start">
+                        </div>
+                        <div class="date-group">
+                            <label>To:</label>
+                            <input type="date" id="motion-date-end">
+                            <input type="time" id="motion-time-end">
+                        </div>
+                        <button class="btn" onclick="updateMotionChart()">📊 Load Data</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="motion-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Configuration -->
+            <div class="card span-12">
+                <div class="hd">
+                    <h2>System Configuration</h2>
+                </div>
+                <div class="bd">
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Pre-Alarm Delay (seconds)</label>
+                            <input type="number" id="config-pre-alarm" min="0" max="300" value="30">
+                        </div>
+                        <div class="input-group">
+                            <label>Alarm Duration (seconds)</label>
+                            <input type="number" id="config-alarm-duration" min="30" max="600" value="180">
+                        </div>
+                        <div class="input-group">
+                            <label>Motion Timeout (seconds)</label>
+                            <input type="number" id="config-motion-timeout" min="10" max="300" value="60">
+                        </div>
+                        <div class="input-group">
+                            <label>Photo Interval (seconds)</label>
+                            <input type="number" id="config-photo-interval" min="1" max="60" value="5">
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn primary" onclick="saveSettings()">💾 Save Settings</button>
+                        <button class="btn" onclick="loadSettings()">🔄 Reset to Current</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            AnLex Guard Security System &copy; 2024 | Powered by Raspberry Pi
+        </footer>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="gallery-modal" onclick="if(event.target===this) closeGallery()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Photo Gallery</h2>
+                <button class="modal-close" onclick="closeGallery()">&times;</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div class="modal" id="image-modal" onclick="if(event.target===this) closeImageViewer()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="image-title">Image</h2>
+                <button class="modal-close" onclick="closeImageViewer()">&times;</button>
+            </div>
+            <img id="modal-image" src="" alt="Full size image">
+        </div>
+    </div>
+
+    <script>
+      const API_BASE = "/api";
+      let stealthEnabled = false;
+      let pollInterval = null;
+      let currentMode = "disarmed";
+      let tempHumChart = null;
+      let motionChart = null;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeDateSelectors();
+        initializeCharts();
+        loadSettings();
+        startPolling();
+      });
+
+      async function apiCall(endpoint, method = "GET", body = null) {
+        try {
+          const options = { method, headers: { "Content-Type": "application/json" } };
+          if (body) options.body = JSON.stringify(body);
+          const response = await fetch(`${API_BASE}${endpoint}`, options);
+          return await response.json();
+        } catch (error) {
+          console.error("API Error:", error);
+          updateConnectionStatus(false);
+          return { error: error.message };
+        }
+      }
+
+      async function armSystem() {
+        const result = await apiCall("/arm", "POST");
+        if (result.success) {
+          showNotification("✅ System Armed", "success");
+          await updateStatus();
+        } else {
+          showNotification("❌ " + (result.message || "Failed to arm"), "error");
+        }
+      }
+
+      async function disarmSystem() {
+        const result = await apiCall("/disarm", "POST");
+        if (result.success) {
+          showNotification("✅ System Disarmed", "success");
+          await updateStatus();
+        } else {
+          showNotification("❌ Failed to disarm", "error");
+        }
+      }
+
+      async function toggleStealth() {
+        stealthEnabled = !stealthEnabled;
+        const result = await apiCall("/stealth", "POST", { enabled: stealthEnabled });
+        document.getElementById("stealth-icon").textContent = stealthEnabled ? "🌑" : "🌙";
+        document.getElementById("stealth-text").textContent = stealthEnabled ? "Disable" : "Enable";
+        showNotification(`Stealth mode ${stealthEnabled ? "enabled" : "disabled"}`, "info");
+      }
+
+      async function updateStatus() {
+        const data = await apiCall("/status");
+        if (data.error) return;
+
+        const status = data.status || {};
+        const temp = data.temperature || {};
+
+        currentMode = status.mode || "disarmed";
+        const modeText = currentMode.replace("_", " ").toUpperCase();
+        document.getElementById("mode-pill").textContent = modeText;
+        document.getElementById("mode-pill").className = `pill ${currentMode}`;
+        document.getElementById("mode-text").textContent = modeText.charAt(0) + modeText.slice(1).toLowerCase();
+
+        if (currentMode === "disarmed") {
+          document.getElementById("btn-arm").style.display = "block";
+          document.getElementById("btn-disarm").style.display = "none";
+        } else {
+          document.getElementById("btn-arm").style.display = "none";
+          document.getElementById("btn-disarm").style.display = "block";
+        }
+
+        if (temp.temperature !== undefined) {
+          document.getElementById("temp-value").textContent = temp.temperature ? temp.temperature.toFixed(1) : "--";
+          document.getElementById("hum-value").textContent = temp.humidity ? temp.humidity.toFixed(0) + "%" : "--%";
+        }
+
+        stealthEnabled = status.stealth_mode || false;
+        document.getElementById("stealth-icon").textContent = stealthEnabled ? "🌑" : "🌙";
+        document.getElementById("stealth-text").textContent = stealthEnabled ? "Disable" : "Enable";
+        document.getElementById("box-status").textContent = currentMode === "disarmed" ? "Unlocked" : "Locked";
+
+        const servoIcon = document.getElementById("servo-icon");
+        const servoText = document.getElementById("servo-text");
+        if (status.servo_position !== null && status.servo_position !== undefined) {
+          const isLocked = status.servo_position !== 0;
+          servoIcon.textContent = isLocked ? "🔓" : "🔒";
+          servoText.textContent = isLocked ? "Unlock Servo" : "Lock Servo";
+        }
+
+        updateConnectionStatus(true);
+        document.getElementById("last-updated").textContent = new Date().toLocaleTimeString();
+      }
+
+      async function refreshLogs() {
+        const data = await apiCall("/logs?limit=50");
+        if (data.error || !data.logs) return;
+
+        const container = document.getElementById("log-container");
+        container.innerHTML = "";
+
+        if (data.logs.length === 0) {
+          container.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">No events logged yet</div>';
+          return;
+        }
+
+        data.logs.forEach((log) => {
+          const entry = document.createElement("div");
+          entry.className = `log-entry ${log.type}`;
+          const time = new Date(log.timestamp).toLocaleString("en-US", {
+            month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit",
+          });
+          entry.innerHTML = `
+            <div class="time">${time}</div>
+            <div class="type">${log.type}</div>
+            <div class="details">${log.details || "—"}</div>
+          `;
+          container.appendChild(entry);
+        });
+      }
+
+      async function capturePhoto() {
+        showNotification("📸 Capturing photo...", "info");
+        const btn = event.target;
+        btn.disabled = true;
+
+        const result = await apiCall("/test/actuator", "POST", { actuator: "camera", value: null });
+        btn.disabled = false;
+
+        if (result.success) {
+          showNotification("✅ Photo captured!", "success");
+          await refreshCamera();
+        } else {
+          showNotification("❌ Failed to capture photo", "error");
+        }
+      }
+
+      async function refreshCamera() {
+        const data = await apiCall("/images");
+        if (data.images && data.images.length > 0) {
+          const img = data.images[0];
+          document.getElementById("camera-container").innerHTML = `<img src="${API_BASE}/images/${img.filename}" alt="Latest snapshot">`;
+          document.getElementById("photo-count").innerText = data.images.length + " Photos";
+        }
+      }
+
+      async function openGallery() {
+        const data = await apiCall("/images");
+        const modal = document.getElementById("gallery-modal");
+        const grid = document.getElementById("gallery-grid");
+        grid.innerHTML = "";
+
+        if (data.error || !data.images || data.images.length === 0) {
+          grid.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">No photos available</div>';
+        } else {
+          data.images.forEach((img) => {
+            const item = document.createElement("div");
+            item.className = "gallery-item";
+            item.onclick = () => viewImage(img.filename);
+            item.innerHTML = `<img src="${API_BASE}/images/${img.filename}" alt="${img.filename}">`;
+            grid.appendChild(item);
+          });
+        }
+        modal.classList.add("show");
+      }
+
+      function closeGallery() {
+        document.getElementById("gallery-modal").classList.remove("show");
+      }
+
+      function viewImage(filename) {
+        const modal = document.getElementById("image-modal");
+        document.getElementById("modal-image").src = `${API_BASE}/images/${filename}`;
+        document.getElementById("image-title").textContent = filename;
+        modal.classList.add("show");
+      }
+
+      function closeImageViewer() {
+        document.getElementById("image-modal").classList.remove("show");
+      }
+
+      async function testActuator(actuator) {
+        const btn = event.target;
+        btn.disabled = true;
+        const result = await apiCall("/test/actuator", "POST", { actuator, value: null });
+        if (result.success) {
+          showNotification(`✅ ${actuator.toUpperCase()} test complete`, "success");
+        } else {
+          showNotification(`❌ ${actuator.toUpperCase()} test failed`, "error");
+        }
+        btn.disabled = false;
+      }
+
+      async function toggleServo() {
+        const btn = document.getElementById("servo-toggle-btn");
+        const icon = document.getElementById("servo-icon");
+        const text = document.getElementById("servo-text");
+        btn.disabled = true;
+
+        const isCurrentlyLocked = text.textContent.includes("Unlock");
+        const targetAction = isCurrentlyLocked ? "unlock" : "lock";
+        
+        const result = await apiCall("/test/actuator", "POST", { actuator: "servo", value: targetAction });
+        
+        if (result.success) {
+          if (targetAction === "unlock") {
+            icon.textContent = "🔒";
+            text.textContent = "Lock Servo";
+            showNotification("✅ Servo unlocked", "success");
+          } else {
+            icon.textContent = "🔓";
+            text.textContent = "Unlock Servo";
+            showNotification("✅ Servo locked", "success");
+          }
+          await updateStatus();
+        } else {
+          showNotification("❌ Servo toggle failed", "error");
+        }
+        btn.disabled = false;
+      }
+
+      async function loadSettings() {
+        const data = await apiCall("/settings");
+        if (data.success && data.settings) {
+          const s = data.settings;
+          document.getElementById("config-pre-alarm").value = s.pre_alarm_delay_seconds || 30;
+          document.getElementById("config-alarm-duration").value = s.alarm_duration_seconds || 180;
+          document.getElementById("config-motion-timeout").value = s.motion_timeout_seconds || 60;
+          document.getElementById("config-photo-interval").value = s.photo_interval_seconds || 5;
+        }
+      }
+
+      async function saveSettings() {
+        const settings = {
+          pre_alarm_delay_seconds: parseInt(document.getElementById("config-pre-alarm").value),
+          alarm_duration_seconds: parseInt(document.getElementById("config-alarm-duration").value),
+          motion_timeout_seconds: parseInt(document.getElementById("config-motion-timeout").value),
+          photo_interval_seconds: parseInt(document.getElementById("config-photo-interval").value),
+        };
+
+        const result = await apiCall("/settings", "POST", settings);
+        if (result.success) {
+          showNotification("✅ Settings saved successfully", "success");
+        } else {
+          showNotification("❌ Failed to save settings", "error");
+        }
+      }
+
+      function updateConnectionStatus(connected) {
+        const dot = document.getElementById("conn-dot");
+        const text = document.getElementById("conn-text");
+        if (connected) {
+          dot.className = "dot ok";
+          text.textContent = "Connected";
+        } else {
+          dot.className = "dot err";
+          text.textContent = "Disconnected";
+        }
+      }
+
+      function startPolling() {
+        updateStatus();
+        refreshLogs();
+        refreshCamera();
+        pollInterval = setInterval(() => {
+          updateStatus();
+          refreshLogs();
+        }, 5000);
+      }
+
+      function showNotification(message, type) {
+        console.log(`[${type.toUpperCase()}] ${message}`);
+        document.getElementById("last-activity").textContent = message;
+      }
+
+      function initializeDateSelectors() {
+        const now = new Date();
+        const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        
+        const formatDate = (date) => {
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        };
+
+        const formatTime = (date) => {
+          const hours = String(date.getHours()).padStart(2, '0');
+          const minutes = String(date.getMinutes()).padStart(2, '0');
+          return `${hours}:${minutes}`;
+        };
+
+        document.getElementById('temp-date-start').value = formatDate(yesterday);
+        document.getElementById('temp-time-start').value = formatTime(yesterday);
+        document.getElementById('temp-date-end').value = formatDate(now);
+        document.getElementById('temp-time-end').value = formatTime(now);
+        
+        document.getElementById('motion-date-start').value = formatDate(yesterday);
+        document.getElementById('motion-time-start').value = formatTime(yesterday);
+        document.getElementById('motion-date-end').value = formatDate(now);
+        document.getElementById('motion-time-end').value = formatTime(now);
+      }
+
+      function initializeCharts() {
+        const tempHumCtx = document.getElementById('temp-hum-chart').getContext('2d');
+        tempHumChart = new Chart(tempHumCtx, {
+          type: 'line',
+          data: {
+            datasets: [
+              {
+                label: 'Temperature (°C)',
+                data: [],
+                borderColor: 'rgb(106, 163, 255)',
+                backgroundColor: 'rgba(106, 163, 255, 0.1)',
+                yAxisID: 'y',
+                tension: 0.4,
+                fill: true
+              },
+              {
+                label: 'Humidity (%)',
+                data: [],
+                borderColor: 'rgb(46, 204, 113)',
+                backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                yAxisID: 'y1',
+                tension: 0.4,
+                fill: true
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: {
+                display: true,
+                labels: { color: '#e6edf3', font: { size: 12 } }
+              },
+              tooltip: {
+                backgroundColor: 'rgba(18, 24, 37, 0.95)',
+                titleColor: '#e6edf3',
+                bodyColor: '#8ea0b6',
+                borderColor: '#213046',
+                borderWidth: 1
+              }
+            },
+            scales: {
+              x: {
+                type: 'time',
+                time: { unit: 'hour', displayFormats: { hour: 'MMM d, HH:mm' } },
+                grid: { color: 'rgba(33, 48, 70, 0.5)' },
+                ticks: { color: '#8ea0b6', font: { size: 11 } }
+              },
+              y: {
+                type: 'linear',
+                display: true,
+                position: 'left',
+                title: { display: true, text: 'Temperature (°C)', color: '#6aa3ff' },
+                grid: { color: 'rgba(33, 48, 70, 0.5)' },
+                ticks: { color: '#8ea0b6', font: { size: 11 } }
+              },
+              y1: {
+                type: 'linear',
+                display: true,
+                position: 'right',
+                title: { display: true, text: 'Humidity (%)', color: '#2ecc71' },
+                grid: { drawOnChartArea: false },
+                ticks: { color: '#8ea0b6', font: { size: 11 } }
+              }
+            }
+          }
+        });
+
+        const motionCtx = document.getElementById('motion-chart').getContext('2d');
+        motionChart = new Chart(motionCtx, {
+          type: 'bar',
+          data: {
+            datasets: [{
+              label: 'Motion Events',
+              data: [],
+              backgroundColor: 'rgba(241, 196, 15, 0.7)',
+              borderColor: 'rgb(241, 196, 15)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true,
+                labels: { color: '#e6edf3', font: { size: 12 } }
+              },
+              tooltip: {
+                backgroundColor: 'rgba(18, 24, 37, 0.95)',
+                titleColor: '#e6edf3',
+                bodyColor: '#8ea0b6',
+                borderColor: '#213046',
+                borderWidth: 1
+              }
+            },
+            scales: {
+              x: {
+                type: 'time',
+                time: { unit: 'hour', displayFormats: { hour: 'MMM d, HH:mm' } },
+                grid: { color: 'rgba(33, 48, 70, 0.5)' },
+                ticks: { color: '#8ea0b6', font: { size: 11 } }
+              },
+              y: {
+                beginAtZero: true,
+                title: { display: true, text: 'Events Count', color: '#f1c40f' },
+                grid: { color: 'rgba(33, 48, 70, 0.5)' },
+                ticks: { color: '#8ea0b6', font: { size: 11 }, stepSize: 1 }
+              }
+            }
+          }
+        });
+      }
+
+      async function updateTempHumChart() {
+        const startDate = document.getElementById('temp-date-start').value;
+        const startTime = document.getElementById('temp-time-start').value;
+        const endDate = document.getElementById('temp-date-end').value;
+        const endTime = document.getElementById('temp-time-end').value;
+        
+        if (!startDate || !startTime || !endDate || !endTime) {
+          showNotification('Please select all date and time fields', 'error');
+          return;
+        }
+
+        const startDateTime = `${startDate}T${startTime}:00`;
+        const endDateTime = `${endDate}T${endTime}:00`;
+
+        showNotification('Loading temperature & humidity data...', 'info');
+
+        const data = await apiCall(`/history/temperature?start=${startDateTime}&end=${endDateTime}`);
+        
+        if (data.data && data.data.length > 0) {
+          const tempData = data.data.map(item => ({ x: new Date(item.created_at), y: parseFloat(item.value) }));
+          tempHumChart.data.datasets[0].data = tempData;
+          
+          const humData = await apiCall(`/history/humidity?start=${startDateTime}&end=${endDateTime}`);
+          if (humData.data && humData.data.length > 0) {
+            const humidityData = humData.data.map(item => ({ x: new Date(item.created_at), y: parseFloat(item.value) }));
+            tempHumChart.data.datasets[1].data = humidityData;
+          }
+
+          tempHumChart.update();
+          showNotification(`Loaded ${tempData.length} temperature readings`, 'success');
+        } else {
+          tempHumChart.data.datasets[0].data = [];
+          tempHumChart.data.datasets[1].data = [];
+          tempHumChart.update();
+          showNotification('No data available for selected period', 'info');
+        }
+      }
+
+      async function updateMotionChart() {
+        const startDate = document.getElementById('motion-date-start').value;
+        const startTime = document.getElementById('motion-time-start').value;
+        const endDate = document.getElementById('motion-date-end').value;
+        const endTime = document.getElementById('motion-time-end').value;
+        
+        if (!startDate || !startTime || !endDate || !endTime) {
+          showNotification('Please select all date and time fields', 'error');
+          return;
+        }
+
+        const startDateTime = `${startDate}T${startTime}:00`;
+        const endDateTime = `${endDate}T${endTime}:00`;
+
+        showNotification('Loading motion detection data...', 'info');
+
+        const data = await apiCall(`/history/motion?start=${startDateTime}&end=${endDateTime}`);
+        
+        if (data.data && data.data.length > 0) {
+          const motionByHour = {};
+          
+          data.data.forEach(item => {
+            const date = new Date(item.created_at);
+            const hourKey = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours());
+            const hourStr = hourKey.toISOString();
+            
+            if (!motionByHour[hourStr]) {
+              motionByHour[hourStr] = 0;
+            }
+            if (parseFloat(item.value) > 0) {
+              motionByHour[hourStr]++;
+            }
+          });
+
+          const motionData = Object.keys(motionByHour).map(key => ({ x: new Date(key), y: motionByHour[key] })).sort((a, b) => a.x - b.x);
+
+          motionChart.data.datasets[0].data = motionData;
+          motionChart.update();
+          showNotification(`Loaded ${motionData.length} motion data points`, 'success');
+        } else {
+          motionChart.data.datasets[0].data = [];
+          motionChart.update();
+          showNotification('No motion data for selected period', 'info');
+        }
+      }
+
+      window.addEventListener("beforeunload", () => {
+        if (pollInterval) clearInterval(pollInterval);
+      });
+    </script>
+</body>
+</html>

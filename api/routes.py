@@ -25,11 +25,6 @@ def register_routes(app):
         """Serve main dashboard"""
         return render_template('index.html')
     
-    @app.route('/about')
-    def about():
-        """Serve about page"""
-        return render_template('about.html')
-    
     # ==================== SYSTEM STATUS ====================
     
     @app.route('/api/status')

@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class AdafruitService:
     """Adafruit IO MQTT and REST API client"""
     
-    def __init__(self, username: str, key: str, feeds: Dict[str, str], control_callback=None):
+    def __init__(self, username: str, key: str, feeds: Dict[str, str]):
         """
         Initialize Adafruit IO service
         
@@ -25,14 +25,12 @@ class AdafruitService:
             username: Adafruit IO username
             key: Adafruit IO key
             feeds: Dictionary mapping feed names to feed keys
-            control_callback: Callback function for control commands (feed_name, value)
         """
         self.username = username
         self.key = key
         self.feeds = feeds
         self.host = "io.adafruit.com"
         self.port = 8883
-        self.control_callback = control_callback
         
         self._connected = False
         
@@ -50,10 +48,6 @@ class AdafruitService:
         
         self.client.on_connect = self._on_connect
         self.client.on_disconnect = self._on_disconnect
-        self.client.on_message = self._on_message
-        
-        # Control feeds to subscribe to
-        self._control_feeds = ['led_control', 'buzzer_control', 'servo_control', 'stealth_mode']
         
         logger.info("Adafruit IO service initialized")
     
@@ -62,14 +56,6 @@ class AdafruitService:
         if rc == 0:
             self._connected = True
             logger.info("Adafruit IO connected")
-            
-            # Subscribe to control feeds
-            for feed_name in self._control_feeds:
-                feed_key = self.feeds.get(feed_name)
-                if feed_key:
-                    topic = f"{self.username}/feeds/{feed_key}"
-                    self.client.subscribe(topic, qos=1)
-                    logger.info(f"Subscribed to control feed: {feed_name}")
         else:
             logger.error(f"Adafruit IO connection failed: rc={rc}")
     
@@ -77,41 +63,6 @@ class AdafruitService:
         """MQTT disconnection callback"""
         self._connected = False
         logger.warning(f"Adafruit IO disconnected: rc={rc}")
-    
-    def _on_message(self, client, userdata, msg):
-        """MQTT message received callback"""
-        try:
-            # Parse topic to get feed key
-            topic_parts = msg.topic.split('/')
-            if len(topic_parts) >= 3:
-                feed_key = topic_parts[2]
-                
-                # Find feed name from feed key
-                feed_name = None
-                for name, key in self.feeds.items():
-                    if key == feed_key:
-                        feed_name = name
-                        break
-                
-                if feed_name and feed_name in self._control_feeds:
-                    # Parse payload
-                    payload = msg.payload.decode('utf-8')
-                    
-                    # Try to parse JSON, fallback to plain string
-                    try:
-                        data = json.loads(payload)
-                        value = data.get('value', payload)
-                    except json.JSONDecodeError:
-                        value = payload
-                    
-                    logger.info(f"Control command received: {feed_name} = {value}")
-                    
-                    # Call control callback
-                    if self.control_callback:
-                        self.control_callback(feed_name, value)
-                    
-        except Exception as e:
-            logger.error(f"Error processing MQTT message: {e}", exc_info=True)
     
     def connect(self):
         """Connect to Adafruit IO MQTT broker"""

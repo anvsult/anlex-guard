@@ -1,6 +1,3 @@
-"""
-USB Camera Module
-"""
 import logging
 import cv2
 import threading

@@ -945,7 +945,6 @@
       }
 
       function startPolling() {
-      function startPolling() {
         updateStatus();
         refreshLogs();
         pollInterval = setInterval(() => {
@@ -953,6 +952,7 @@
           refreshLogs();
         }, 5000);
       }
+
       function showNotification(message, type) {
         console.log(`[${type.toUpperCase()}] ${message}`);
         document.getElementById("last-activity").textContent = message;

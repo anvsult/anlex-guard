@@ -1,5 +1,6 @@
 """
-API Routes for Dashboard
+API Routes for Dashboard (Raspberry Pi with Hardware)
+Handles local hardware + Adafruit IO integration
 """
 import logging
 from flask import jsonify, request, render_template, send_from_directory, current_app
@@ -53,6 +54,7 @@ def register_routes(app):
             success = system.arm_system(source="Dashboard")
             
             if success:
+                system.adafruit.publish('mode', 'armed')
                 return jsonify({"success": True, "mode": "armed"})
             else:
                 return jsonify({"success": False, "message": "Already armed or in alarm"}), 400
@@ -67,6 +69,7 @@ def register_routes(app):
             system = get_system()
             success = system.disarm_system(source="Dashboard")
             
+            system.adafruit.publish('mode', 'disarmed')
             return jsonify({"success": True, "mode": "disarmed"})
         except Exception as e:
             logger.error(f"Disarm API error: {e}")
@@ -81,6 +84,8 @@ def register_routes(app):
             
             system = get_system()
             system.stealth_mode = enabled
+            
+            system.adafruit.publish('stealth_mode', '1' if enabled else '0')
             
             return jsonify({"success": True, "stealth": enabled})
         except Exception as e:
@@ -120,42 +125,66 @@ def register_routes(app):
         """Serve a specific image"""
         return send_from_directory('web/static/images', filename)
     
-    # ==================== ACTUATOR TESTING ====================
+    # ==================== ACTUATOR CONTROL (via Adafruit IO) ====================
     
-    @app.route('/api/test/actuator', methods=['POST'])
-    def api_test_actuator():
-        """Test individual actuators"""
+    @app.route('/api/control/led', methods=['POST'])
+    def api_control_led():
+        """Control LED via Adafruit IO"""
         try:
             data = request.json
-            actuator = data.get('actuator')
-            value = data.get('value')
+            action = data.get('action', 'blink-fast')  # on, off, blink, blink-fast
             
             system = get_system()
+            system.adafruit.publish('led_control', action)
             
-            if actuator == 'led':
-                system.led.blink(count=5, on_time=0.1, off_time=0.1)
-            
-            elif actuator == 'buzzer':
-                system.buzzer.beep(duration=0.2)
-            
-            elif actuator == 'servo':
-                if value == 'lock':
-                    system.servo.lock()
-                elif value == 'unlock':
-                    system.servo.unlock()
-            
-            elif actuator == 'camera':
-                filename = system.camera.capture()
-                system._log_event("PHOTO", f"Manual test: {filename}")
-                return jsonify({"success": True, "filename": filename})
-            
-            else:
-                return jsonify({"error": "Unknown actuator"}), 400
-            
-            return jsonify({"success": True})
-            
+            return jsonify({"success": True, "action": action})
         except Exception as e:
-            logger.error(f"Test actuator error: {e}", exc_info=True)
+            logger.error(f"LED control error: {e}")
+            return jsonify({"error": str(e)}), 500
+    
+    @app.route('/api/control/buzzer', methods=['POST'])
+    def api_control_buzzer():
+        """Control buzzer via Adafruit IO"""
+        try:
+            data = request.json
+            action = data.get('action', 'beep')  # on, off, beep, beep-twice, siren
+            
+            system = get_system()
+            system.adafruit.publish('buzzer_control', action)
+            
+            return jsonify({"success": True, "action": action})
+        except Exception as e:
+            logger.error(f"Buzzer control error: {e}")
+            return jsonify({"error": str(e)}), 500
+    
+    @app.route('/api/control/servo', methods=['POST'])
+    def api_control_servo():
+        """Control servo via Adafruit IO"""
+        try:
+            data = request.json
+            action = data.get('action')  # lock, unlock
+            
+            if action not in ['lock', 'unlock']:
+                return jsonify({"error": "Invalid action. Use 'lock' or 'unlock'"}), 400
+            
+            system = get_system()
+            system.adafruit.publish('servo_control', action)
+            
+            return jsonify({"success": True, "action": action})
+        except Exception as e:
+            logger.error(f"Servo control error: {e}")
+            return jsonify({"error": str(e)}), 500
+    
+    @app.route('/api/control/camera', methods=['POST'])
+    def api_control_camera():
+        """Capture photo (direct hardware control)"""
+        try:
+            system = get_system()
+            filename = system.camera.capture()
+            system._log_event("PHOTO", f"Manual capture: {filename}")
+            return jsonify({"success": True, "filename": filename})
+        except Exception as e:
+            logger.error(f"Camera capture error: {e}")
             return jsonify({"error": str(e)}), 500
     
     # ==================== HISTORICAL DATA ====================

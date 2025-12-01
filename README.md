@@ -1,72 +1,142 @@
-# AnLex Guard
+# AnLex Guard - Cloud Security System
 
-Raspberry Pi home security system with motion detection, RFID access control, and environmental monitoring.
+Home security system with cloud dashboard deployment.
 
-## Features
+## Architecture
 
-- Motion detection with PIR sensor
-- RFID-based access control
-- Temperature and humidity monitoring
-- USB camera with photo capture
-- Web dashboard for monitoring and control
-- Adafruit IO cloud integration
-  - Real-time sensor data publishing
-  - **Remote actuator control (LED, Buzzer, Servo)**
-  - Historical data retrieval
-- Email notifications
+- **Raspberry Pi**: Runs hardware sensors/actuators, communicates with Adafruit IO via MQTT
+- **Adafruit IO**: Cloud IoT platform for data sync and device control
+- **Flask App (Cloud)**: Web dashboard deployed on Render.com, communicates with Adafruit IO via HTTP
+- **NEON Database** (optional): PostgreSQL for historical data storage
 
-## Hardware
+## Quick Start
 
-- PIR Motion Sensor (GPIO 17)
-- DHT11 Temperature/Humidity Sensor (GPIO 4)
-- MFRC522 RFID Reader (SPI)
-- USB Camera
-- LED Indicator (GPIO 27)
-- Buzzer (GPIO 13)
-- Servo Motor (GPIO 18)
-
-## Installation
-
-### 1. System Setup
-
+### For Raspberry Pi (Hardware)
 ```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y python3-pip python3-venv
-sudo raspi-config  # Enable SPI for RFID
-sudo reboot
-```
-
-### 2. Install Dependencies
-
-```bash
-git clone https://github.com/yourusername/anlex-guard.git
-cd anlex-guard
-python3 -m venv venv
-source venv/bin/activate
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 3. Configuration
-
-Create `.env` file with:
-```
-ADAFRUIT_IO_USERNAME=your_username
-ADAFRUIT_IO_KEY=your_key
-AUTHORIZED_RFID_IDS=comma,separated,ids
-BREVO_API_KEY=your_key
-EMAIL_FROM=sender@email.com
-EMAIL_TO=recipient@email.com
-```
-
-## Usage
-
-```bash
-source venv/bin/activate
+# Configure Adafruit IO credentials in config/config.json
+# Run the system
 python main.py
 ```
 
-Access dashboard at `http://<raspberry-pi-ip>:5000`
+### For Cloud Deployment (Render.com)
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
+
+**Quick deploy:**
+1. Push code to GitHub
+2. Connect to Render.com
+3. Set environment variables (ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
+4. Deploy!
+
+## Features
+
+- 🌡️ **Environmental Monitoring**: Temperature and humidity tracking
+- 🚨 **Motion Detection**: PIR sensor with alarm system
+- 🔒 **Smart Lock**: Servo-controlled locking mechanism
+- 📸 **Surveillance**: Camera integration (Raspberry Pi only)
+- 🌐 **Cloud Dashboard**: Access from anywhere via web interface
+- 📊 **Historical Data**: Charts and analytics
+- 🔔 **Alerts**: Email notifications via Brevo
+- 🎚️ **Remote Control**: LED, buzzer, servo control via Adafruit IO
+
+## File Structure
+
+```
+anlex-guard/
+├── main.py                 # Raspberry Pi entry point (hardware)
+├── cloud_app.py           # Cloud deployment entry point
+├── requirements.txt       # Raspberry Pi dependencies
+├── requirements-cloud.txt # Cloud deployment dependencies
+├── Procfile              # Render.com configuration
+├── DEPLOYMENT.md         # Deployment guide
+├── api/
+│   ├── routes.py         # Local API routes (with hardware)
+│   └── cloud_routes.py   # Cloud API routes (HTTP only)
+├── app/
+│   ├── state_machine.py  # Core security logic
+│   └── config.py         # Configuration management
+├── hardware/
+│   ├── sensors.py        # Sensor interfaces
+│   ├── actuators.py      # Actuator controls
+│   └── camera.py         # Camera module
+├── services/
+│   ├── adafruit_service.py  # Adafruit IO integration
+│   ├── email_service.py     # Brevo email service
+│   └── storage_service.py   # Image storage
+└── web/
+    ├── templates/        # HTML templates
+    └── static/          # CSS, JS, images
+```
+
+## Configuration
+
+### Raspberry Pi (config/config.json)
+```json
+{
+  "adafruit_io": {
+    "username": "your_username",
+    "key": "your_key",
+    "feeds": { ... }
+  },
+  "email": { ... },
+  "pins": { ... }
+}
+```
+
+### Cloud (.env on Render.com)
+```
+ADAFRUIT_IO_USERNAME=your_username
+ADAFRUIT_IO_KEY=your_key
+```
+
+## API Endpoints
+
+### Control
+- `POST /api/arm` - Arm system
+- `POST /api/disarm` - Disarm system
+- `POST /api/stealth` - Toggle stealth mode
+- `POST /api/control/led` - Control LED
+- `POST /api/control/buzzer` - Control buzzer
+- `POST /api/control/servo` - Lock/unlock servo
+
+### Data
+- `GET /api/status` - Current system status
+- `GET /api/logs` - Event logs
+- `GET /api/history/temperature` - Temperature history
+- `GET /api/history/humidity` - Humidity history
+- `GET /api/history/motion` - Motion detection history
+
+## Development
+
+### Local Testing (without hardware)
+```bash
+pip install -r requirements-cloud.txt
+export ADAFRUIT_IO_USERNAME=your_username
+export ADAFRUIT_IO_KEY=your_key
+python cloud_app.py
+```
+
+### With Hardware (Raspberry Pi)
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+## Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment instructions for:
+- Raspberry Pi setup
+- Render.com deployment
+- NEON.com database integration
+- Environment variables
+- Troubleshooting
 
 ## License
 
-MIT License
+MIT
+
+## Team
+
+See [web/templates/about.html](web/templates/about.html) for team information.

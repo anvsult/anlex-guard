@@ -667,6 +667,10 @@
     </div>
 
     <script>
+      // AnLex Guard Cloud Frontend
+      // Communicates with Adafruit IO via backend HTTP API
+      // Works on Render.com or any cloud platform
+      
       const API_BASE = "/api";
       let stealthEnabled = false;
       let pollInterval = null;
@@ -743,7 +747,7 @@
           document.getElementById("btn-disarm").style.display = "block";
         }
 
-        if (temp.temperature !== undefined) {
+        if (temp.temperature !== undefined && temp.temperature !== null) {
           document.getElementById("temp-value").textContent = temp.temperature ? temp.temperature.toFixed(1) : "--";
           document.getElementById("hum-value").textContent = temp.humidity ? temp.humidity.toFixed(0) + "%" : "--%";
         }
@@ -797,7 +801,7 @@
         const btn = event.target;
         btn.disabled = true;
 
-        const result = await apiCall("/test/actuator", "POST", { actuator: "camera", value: null });
+        const result = await apiCall("/control/camera", "POST");
         btn.disabled = false;
 
         if (result.success) {
@@ -855,7 +859,16 @@
       async function testActuator(actuator) {
         const btn = event.target;
         btn.disabled = true;
-        const result = await apiCall("/test/actuator", "POST", { actuator, value: null });
+        
+        let result;
+        if (actuator === 'led') {
+          result = await apiCall("/control/led", "POST", { action: "blink-fast" });
+        } else if (actuator === 'buzzer') {
+          result = await apiCall("/control/buzzer", "POST", { action: "beep" });
+        } else {
+          result = { success: false };
+        }
+        
         if (result.success) {
           showNotification(`✅ ${actuator.toUpperCase()} test complete`, "success");
         } else {
@@ -873,17 +886,17 @@
         const isCurrentlyLocked = text.textContent.includes("Unlock");
         const targetAction = isCurrentlyLocked ? "unlock" : "lock";
         
-        const result = await apiCall("/test/actuator", "POST", { actuator: "servo", value: targetAction });
+        const result = await apiCall("/control/servo", "POST", { action: targetAction });
         
         if (result.success) {
           if (targetAction === "unlock") {
             icon.textContent = "🔒";
             text.textContent = "Lock Servo";
-            showNotification("✅ Servo unlocked", "success");
+            showNotification("✅ Servo unlocked (via Adafruit IO)", "success");
           } else {
             icon.textContent = "🔓";
             text.textContent = "Unlock Servo";
-            showNotification("✅ Servo locked", "success");
+            showNotification("✅ Servo locked (via Adafruit IO)", "success");
           }
           await updateStatus();
         } else {
@@ -932,15 +945,14 @@
       }
 
       function startPolling() {
+      function startPolling() {
         updateStatus();
         refreshLogs();
-        refreshCamera();
         pollInterval = setInterval(() => {
           updateStatus();
           refreshLogs();
         }, 5000);
       }
-
       function showNotification(message, type) {
         console.log(`[${type.toUpperCase()}] ${message}`);
         document.getElementById("last-activity").textContent = message;

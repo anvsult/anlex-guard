@@ -10,6 +10,9 @@ Raspberry Pi home security system with motion detection, RFID access control, an
 - USB camera with photo capture
 - Web dashboard for monitoring and control
 - Adafruit IO cloud integration
+  - Real-time sensor data publishing
+  - **Remote actuator control (LED, Buzzer, Servo)**
+  - Historical data retrieval
 - Email notifications
 
 ## Hardware

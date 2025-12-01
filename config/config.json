@@ -10,7 +10,11 @@
       "mode": "mode",
       "alarm": "alarm",
       "event_log": "events",
-      "photos": "photos"
+      "photos": "photos",
+      "led_control": "actuator.led",
+      "buzzer_control": "actuator.buzzer",
+      "servo_control": "actuator.servo",
+      "stealth_mode": "control.stealth"
     }
   },
   "email": {

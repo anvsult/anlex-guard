@@ -119,7 +119,8 @@ class SecurityStateMachine:
             self.adafruit = AdafruitService(
                 username=aio_config.get('username', ''),
                 key=aio_config.get('key', ''),
-                feeds=aio_config.get('feeds', {})
+                feeds=aio_config.get('feeds', {}),
+                control_callback=self._handle_adafruit_control
             )
             
             # Email Service (Brevo)
@@ -245,6 +246,88 @@ class SecurityStateMachine:
             self._task_queue.put(("publish", ("alarm", 0)))
             
             return True
+    
+    # ==================== ADAFRUIT CONTROL HANDLER ====================
+    
+    def _handle_adafruit_control(self, feed_name: str, value: str):
+        """
+        Handle control commands from Adafruit IO
+        
+        Args:
+            feed_name: Name of the control feed
+            value: Value received from Adafruit IO
+        """
+        try:
+            # Convert value to appropriate type
+            value = str(value).strip().lower()
+            
+            if feed_name == 'led_control':
+                # LED control: on, off, blink, blink-fast
+                if value in ['1', 'on', 'true']:
+                    self.led.on()
+                    logger.info("LED turned ON via Adafruit IO")
+                elif value in ['0', 'off', 'false']:
+                    self.led.off()
+                    logger.info("LED turned OFF via Adafruit IO")
+                elif value == 'blink':
+                    threading.Thread(target=self.led.blink, args=(3, 0.5, 0.5), daemon=True).start()
+                    logger.info("LED blinking (slow) via Adafruit IO")
+                elif value == 'blink-fast':
+                    threading.Thread(target=self.led.blink, args=(5, 0.1, 0.1), daemon=True).start()
+                    logger.info("LED blinking (fast) via Adafruit IO")
+            
+            elif feed_name == 'buzzer_control':
+                # Buzzer control: on, off, beep, beep-twice, siren
+                if value in ['1', 'on', 'siren', 'true']:
+                    self.buzzer.start_siren()
+                    logger.info("Buzzer siren started via Adafruit IO")
+                elif value in ['0', 'off', 'stop', 'false']:
+                    self.buzzer.stop()
+                    logger.info("Buzzer stopped via Adafruit IO")
+                elif value == 'beep':
+                    threading.Thread(target=self.buzzer.beep, args=(0.2,), daemon=True).start()
+                    logger.info("Buzzer beep via Adafruit IO")
+                elif value == 'beep-twice':
+                    threading.Thread(target=self.buzzer.beep_twice, args=(0.1,), daemon=True).start()
+                    logger.info("Buzzer beep-twice via Adafruit IO")
+            
+            elif feed_name == 'servo_control':
+                # Servo control: lock, unlock, or angle (0-180)
+                if value in ['lock', 'locked', '1']:
+                    self.servo.lock()
+                    logger.info("Servo locked via Adafruit IO")
+                    self._log_event("SERVO_LOCK", "Remote control via Adafruit IO")
+                elif value in ['unlock', 'unlocked', '0']:
+                    self.servo.unlock()
+                    logger.info("Servo unlocked via Adafruit IO")
+                    self._log_event("SERVO_UNLOCK", "Remote control via Adafruit IO")
+                else:
+                    # Try to parse as angle
+                    try:
+                        angle = int(float(value))
+                        if 0 <= angle <= 180:
+                            self.servo.servo.angle = angle
+                            time.sleep(0.5)
+                            self.servo.servo.detach()
+                            self.servo.current_angle = angle
+                            logger.info(f"Servo set to {angle}° via Adafruit IO")
+                            self._log_event("SERVO_ANGLE", f"Set to {angle}° via Adafruit IO")
+                    except ValueError:
+                        logger.warning(f"Invalid servo angle: {value}")
+            
+            elif feed_name == 'stealth_mode':
+                # Stealth mode control: on/off
+                if value in ['1', 'on', 'true', 'enabled']:
+                    self.stealth_mode = True
+                    logger.info("Stealth mode ENABLED via Adafruit IO")
+                    self._log_event("STEALTH_MODE", "Enabled via Adafruit IO")
+                elif value in ['0', 'off', 'false', 'disabled']:
+                    self.stealth_mode = False
+                    logger.info("Stealth mode DISABLED via Adafruit IO")
+                    self._log_event("STEALTH_MODE", "Disabled via Adafruit IO")
+        
+        except Exception as e:
+            logger.error(f"Error handling Adafruit control command: {e}", exc_info=True)
     
     # ==================== EVENT HANDLING ====================
     

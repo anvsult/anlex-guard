@@ -12,6 +12,7 @@ Home security system with cloud dashboard deployment.
 - **NEON Database** (optional): PostgreSQL for historical data storage
 
 ### How It Works
+
 ```
 Dashboard (Render.com) → Adafruit IO MQTT → Raspberry Pi → Hardware
       ↑                                                          ↓
@@ -23,6 +24,7 @@ All actuator controls (LED, Buzzer, Servo, Arm/Disarm) are sent through Adafruit
 ## Quick Start
 
 ### For Raspberry Pi (Hardware)
+
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -33,9 +35,11 @@ python main.py
 ```
 
 ### For Cloud Deployment (Render.com)
+
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
 **Quick deploy:**
+
 1. Push code to GitHub
 2. Connect to Render.com
 3. Set environment variables (ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
@@ -87,6 +91,7 @@ anlex-guard/
 ## Configuration
 
 ### Raspberry Pi (config/config.json)
+
 ```json
 {
   "adafruit_io": {
@@ -100,6 +105,7 @@ anlex-guard/
 ```
 
 ### Cloud (.env on Render.com)
+
 ```
 ADAFRUIT_IO_USERNAME=your_username
 ADAFRUIT_IO_KEY=your_key
@@ -108,6 +114,7 @@ ADAFRUIT_IO_KEY=your_key
 ## API Endpoints
 
 ### Control
+
 - `POST /api/arm` - Arm system
 - `POST /api/disarm` - Disarm system
 - `POST /api/stealth` - Toggle stealth mode
@@ -116,6 +123,7 @@ ADAFRUIT_IO_KEY=your_key
 - `POST /api/control/servo` - Lock/unlock servo
 
 ### Data
+
 - `GET /api/status` - Current system status
 - `GET /api/logs` - Event logs
 - `GET /api/history/temperature` - Temperature history
@@ -125,6 +133,7 @@ ADAFRUIT_IO_KEY=your_key
 ## Development
 
 ### Local Testing (without hardware)
+
 ```bash
 pip install -r requirements-cloud.txt
 export ADAFRUIT_IO_USERNAME=your_username
@@ -133,6 +142,7 @@ python cloud_app.py
 ```
 
 ### With Hardware (Raspberry Pi)
+
 ```bash
 pip install -r requirements.txt
 python main.py
@@ -141,6 +151,7 @@ python main.py
 ## Deployment
 
 See **[CLOUD_DEPLOYMENT.md](CLOUD_DEPLOYMENT.md)** for complete guide on:
+
 - Cloud deployment architecture with Adafruit IO MQTT
 - Setting up Raspberry Pi with hardware
 - Deploying dashboard to Render.com
@@ -149,6 +160,7 @@ See **[CLOUD_DEPLOYMENT.md](CLOUD_DEPLOYMENT.md)** for complete guide on:
 - Troubleshooting common issues
 
 Also see [DEPLOYMENT.md](DEPLOYMENT.md) for additional deployment options including:
+
 - NEON.com database integration
 - Alternative cloud platforms
 - Advanced configuration

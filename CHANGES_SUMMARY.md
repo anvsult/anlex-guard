@@ -1,20 +1,24 @@
 # Changes Summary - Adafruit IO Integration for Render.com
 
 ## Overview
+
 Updated the AnLex Guard security system to support cloud deployment on Render.com with full actuator control through Adafruit IO MQTT feeds.
 
 ## Files Modified
 
 ### 1. `cloud_app.py`
+
 **Purpose**: Cloud deployment entry point for Render.com
 
 **Changes**:
+
 - Added graceful shutdown handling with signal handlers
 - Imported `shutdown_cloud_services` function
 - Added MQTT connection establishment on startup
 - Enhanced logging to indicate Adafruit IO integration status
 
 **Key Updates**:
+
 ```python
 # Added signal handler for graceful shutdown
 def signal_handler(sig, frame):
@@ -28,9 +32,11 @@ init_cloud_services()  # Now connects to MQTT, not just REST API
 ---
 
 ### 2. `api/cloud_routes.py`
+
 **Purpose**: API routes for cloud deployment
 
 **Changes**:
+
 - Enhanced `init_cloud_services()` to establish MQTT connection
 - Added `shutdown_cloud_services()` for cleanup
 - Updated all control endpoints with better error handling
@@ -40,19 +46,21 @@ init_cloud_services()  # Now connects to MQTT, not just REST API
 **Key Updates**:
 
 **Service Initialization**:
+
 ```python
 def init_cloud_services():
     # Initialize with control callback
     adafruit = AdafruitService(username, key, feeds, control_callback=None)
     # Connect to MQTT broker
     adafruit.connect()
-    
+
 def shutdown_cloud_services():
     # Graceful disconnect
     adafruit.disconnect()
 ```
 
 **Enhanced Control Endpoints**:
+
 - `/api/arm` - Now publishes to `mode` feed with validation
 - `/api/disarm` - Now publishes to `mode` feed with validation
 - `/api/stealth` - Enhanced with better error handling
@@ -62,20 +70,21 @@ def shutdown_cloud_services():
 - `/api/control/camera` - Returns 501 (Not Implemented) for cloud-only mode
 
 **Example Enhanced Endpoint**:
+
 ```python
 @app.route('/api/control/led', methods=['POST'])
 def api_control_led():
     if not adafruit:
         return jsonify({"error": "Adafruit IO not initialized"}), 503
-    
+
     # Validate action
     valid_actions = ['on', 'off', 'blink', 'blink-fast', '1', '0']
     if action not in valid_actions:
         return jsonify({"error": f"Invalid action"}), 400
-    
+
     # Publish to Adafruit IO
     adafruit.publish('led_control', action)
-    
+
     return jsonify({
         "success": True,
         "message": "Command sent to Adafruit IO feed 'led_control'"
@@ -85,14 +94,17 @@ def api_control_led():
 ---
 
 ### 3. `app/state_machine.py`
+
 **Purpose**: Core security system logic on Raspberry Pi
 
 **Changes**:
+
 - Added `mode` feed handling to `_handle_adafruit_control()` method
 - Raspberry Pi can now receive arm/disarm commands from cloud
 - Enables bidirectional control (local RFID + cloud dashboard)
 
 **Key Update**:
+
 ```python
 def _handle_adafruit_control(self, feed_name: str, value: str):
     if feed_name == 'mode':
@@ -103,27 +115,30 @@ def _handle_adafruit_control(self, feed_name: str, value: str):
         elif value in ['disarmed', 'disarm', '0']:
             self.disarm_system(source="Adafruit IO")
             self._log_event("DISARM", "Remote control via Adafruit IO")
-    
+
     # ... existing LED, buzzer, servo, stealth_mode handling
 ```
 
 ---
 
 ### 4. `services/adafruit_service.py`
+
 **Purpose**: Adafruit IO MQTT client service
 
 **Changes**:
+
 - Added `'mode'` to the list of subscribed control feeds
 - Raspberry Pi now listens for mode changes from cloud
 
 **Key Update**:
+
 ```python
 # Control feeds to subscribe to (for receiving commands from cloud)
 self._control_feeds = [
     'mode',              # NEW: Receive arm/disarm commands
-    'led_control', 
-    'buzzer_control', 
-    'servo_control', 
+    'led_control',
+    'buzzer_control',
+    'servo_control',
     'stealth_mode'
 ]
 ```
@@ -133,9 +148,11 @@ self._control_feeds = [
 ## New File Created
 
 ### 5. `CLOUD_DEPLOYMENT.md`
+
 **Purpose**: Comprehensive deployment guide
 
 **Contents**:
+
 - Architecture diagram
 - Deployment steps for Render.com
 - Environment variables configuration
@@ -148,6 +165,7 @@ self._control_feeds = [
 ## How the System Works Now
 
 ### Control Flow (Cloud → Hardware):
+
 ```
 1. User clicks "Arm System" on cloud dashboard
 2. Browser → POST /api/arm to Render.com
@@ -160,6 +178,7 @@ self._control_feeds = [
 ```
 
 ### Status Flow (Hardware → Cloud):
+
 ```
 1. Raspberry Pi motion sensor detects movement
 2. state_machine.handle_motion() executes
@@ -189,6 +208,7 @@ self._control_feeds = [
 ## Environment Setup Required
 
 ### Render.com:
+
 ```bash
 ADAFRUIT_IO_USERNAME=your_username
 ADAFRUIT_IO_KEY=your_key
@@ -201,6 +221,7 @@ FEED_STEALTH=control.stealth
 ```
 
 ### Raspberry Pi (`config/config.json`):
+
 ```json
 {
   "adafruit_io": {
@@ -226,7 +247,7 @@ FEED_STEALTH=control.stealth
 ✅ **Secure**: No port forwarding or exposed Raspberry Pi  
 ✅ **Reliable**: Adafruit IO handles connection management  
 ✅ **Real-time**: MQTT provides low-latency updates  
-✅ **Bidirectional**: Control from cloud OR local RFID  
+✅ **Bidirectional**: Control from cloud OR local RFID
 
 ---
 

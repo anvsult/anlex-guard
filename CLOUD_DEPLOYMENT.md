@@ -22,6 +22,7 @@ The AnLex Guard security system has been configured for cloud deployment on **Re
 ```
 
 ### Flow:
+
 1. **User** interacts with dashboard on **Render.com** (cloud deployment)
 2. **Cloud API** (`cloud_app.py`) publishes commands to **Adafruit IO feeds**
 3. **Raspberry Pi** (running `main.py`) subscribes to these feeds via MQTT
@@ -30,17 +31,20 @@ The AnLex Guard security system has been configured for cloud deployment on **Re
 ## Changes Made
 
 ### 1. Cloud Application (`cloud_app.py`)
+
 - Added graceful shutdown handling for Adafruit IO connection
 - Established MQTT connection to Adafruit IO on startup
 - All actuator control commands now publish to Adafruit IO feeds
 
 ### 2. Cloud Routes (`api/cloud_routes.py`)
+
 - Updated `init_cloud_services()` to establish MQTT connection (not just REST API)
 - Added `shutdown_cloud_services()` for cleanup
 - Enhanced all control endpoints with proper error handling and validation
 - Added informative response messages indicating commands are sent to Adafruit IO
 
 #### Control Endpoints:
+
 - `/api/arm` - Arms the system (publishes `"armed"` to `mode` feed)
 - `/api/disarm` - Disarms the system (publishes `"disarmed"` to `mode` feed)
 - `/api/stealth` - Toggles stealth mode (publishes `"1"` or `"0"` to `stealth_mode` feed)
@@ -49,11 +53,13 @@ The AnLex Guard security system has been configured for cloud deployment on **Re
 - `/api/control/servo` - Controls servo (publishes `"lock"` or `"unlock"`)
 
 ### 3. State Machine (`app/state_machine.py`)
+
 - Added `mode` feed handling to `_handle_adafruit_control()`
 - Raspberry Pi can now receive arm/disarm commands from cloud
 - Enables bidirectional control: local RFID + cloud dashboard
 
 ### 4. Adafruit Service (`services/adafruit_service.py`)
+
 - Added `'mode'` to the list of subscribed control feeds
 - Raspberry Pi now listens for mode changes from cloud
 
@@ -84,16 +90,19 @@ FEED_STEALTH=control.stealth
 Create these feeds in your Adafruit IO account:
 
 ### Sensor Data (Published by Pi):
+
 - `sensor.motion` - Motion detection events
 - `sensor.temperature` - Temperature readings
 - `sensor.humidity` - Humidity readings
 
 ### System State (Published by Pi, Read by Cloud):
+
 - `mode` - System mode (armed/disarmed)
 - `alarm` - Alarm state
 - `events` - Event log
 
 ### Control Commands (Published by Cloud, Read by Pi):
+
 - `actuator.led` - LED control commands
 - `actuator.buzzer` - Buzzer control commands
 - `actuator.servo` - Servo lock/unlock commands
@@ -131,8 +140,9 @@ Create these feeds in your Adafruit IO account:
 ### Example: Controlling the LED
 
 **From Cloud Dashboard:**
+
 ```
-User clicks "Turn LED On" 
+User clicks "Turn LED On"
   → POST /api/control/led {"action": "on"}
   → cloud_app.py publishes "on" to Adafruit IO feed "actuator.led"
   → Adafruit IO MQTT broker distributes message
@@ -142,6 +152,7 @@ User clicks "Turn LED On"
 ```
 
 **Bidirectional Control:**
+
 ```
 RFID scan on Pi
   → state_machine.py calls arm_system()
@@ -157,7 +168,7 @@ RFID scan on Pi
 ✅ **Cloud Scalability**: Dashboard hosted on Render.com scales automatically  
 ✅ **Decoupled Architecture**: Hardware and UI can be updated independently  
 ✅ **Real-time Updates**: MQTT ensures low-latency command delivery  
-✅ **Reliability**: Adafruit IO handles connection management and retry logic  
+✅ **Reliability**: Adafruit IO handles connection management and retry logic
 
 ## Limitations
 
@@ -168,17 +179,20 @@ RFID scan on Pi
 ## Troubleshooting
 
 ### Cloud app can't connect to Adafruit IO
+
 - Verify `ADAFRUIT_IO_USERNAME` and `ADAFRUIT_IO_KEY` are set correctly
 - Check Render.com logs for connection errors
 - Ensure firewall allows outbound MQTT (port 8883)
 
 ### Raspberry Pi doesn't receive commands
+
 - Verify Pi is connected to Adafruit IO (check logs)
 - Ensure feed names match exactly (case-sensitive)
 - Check Adafruit IO feed activity logs
 - Verify Pi's `config.json` has correct credentials
 
 ### Commands are sent but nothing happens
+
 - Check Raspberry Pi logs for errors
 - Verify hardware connections (GPIO pins)
 - Test hardware directly using local API endpoints

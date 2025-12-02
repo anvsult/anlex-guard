@@ -42,11 +42,14 @@ class LED:
             off_time: Time LED is off (seconds)
         """
         for _ in range(count):
-            self.on()
-            time.sleep(on_time)
             self.off()
+            time.sleep(on_time)
+            self.on()
             time.sleep(off_time)
-    
+            self.on()
+            time.sleep(off_time)
+            self.on()
+            time.sleep(off_time) 
     def cleanup(self):
         """Cleanup GPIO resources"""
         self.off()

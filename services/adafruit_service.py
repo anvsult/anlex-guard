@@ -52,15 +52,8 @@ class AdafruitService:
         self.client.on_disconnect = self._on_disconnect
         self.client.on_message = self._on_message
         
-        # Control feeds to subscribe to (include mode/alarm so Pi can react)
-        self._control_feeds = [
-            'led_control',
-            'buzzer_control',
-            'servo_control',
-            'stealth_mode',
-            'mode',
-            'alarm'
-        ]
+        # Control feeds to subscribe to
+        self._control_feeds = ['led_control', 'buzzer_control', 'servo_control', 'stealth_mode']
         
         logger.info("Adafruit IO service initialized")
     
@@ -146,28 +139,45 @@ class AdafruitService:
             feed_name: Feed name (from feeds config)
             value: Value to publish
         """
-        if not self._connected:
-            logger.debug("Adafruit IO not connected, skipping publish")
-            return
-        
+        # Resolve feed key
         feed_key = self.feeds.get(feed_name)
         if not feed_key:
             logger.warning(f"Unknown feed: {feed_name}")
-            return
-        
-        try:
-            topic = f"{self.username}/feeds/{feed_key}"
-            payload = json.dumps({"value": value})
-            
-            result = self.client.publish(topic, payload=payload, qos=1)
-            
-            if result.rc == mqtt.MQTT_ERR_SUCCESS:
-                logger.debug(f"Published to {feed_name}: {value}")
-            else:
-                logger.warning(f"Publish failed: rc={result.rc}")
-                
-        except Exception as e:
-            logger.error(f"MQTT publish error: {e}")
+            return False
+
+        topic = f"{self.username}/feeds/{feed_key}"
+        payload = json.dumps({"value": value})
+
+        success = False
+
+        # Try MQTT publish if connected
+        if self._connected:
+            try:
+                result = self.client.publish(topic, payload=payload, qos=1)
+                rc = getattr(result, 'rc', None)
+                if rc == mqtt.MQTT_ERR_SUCCESS:
+                    logger.debug(f"Published via MQTT to {feed_name}: {value}")
+                    success = True
+                else:
+                    logger.warning(f"MQTT publish returned rc={rc}")
+            except Exception as e:
+                logger.error(f"MQTT publish error: {e}", exc_info=True)
+
+        # Fallback to REST API if MQTT unavailable or failed
+        if not success:
+            try:
+                url = f"https://io.adafruit.com/api/v2/{self.username}/feeds/{feed_key}/data"
+                headers = {'X-AIO-Key': self.key, 'Content-Type': 'application/json'}
+                response = requests.post(url, headers=headers, json={"value": value}, timeout=5)
+                if response.status_code in (200, 201):
+                    logger.debug(f"Published via REST to {feed_name}: {value}")
+                    success = True
+                else:
+                    logger.warning(f"REST publish failed: status={response.status_code} body={response.text}")
+            except Exception as e:
+                logger.error(f"REST publish error: {e}", exc_info=True)
+
+        return success
     
     def upload_photo(self, filename: str, filepath: Path):
         """

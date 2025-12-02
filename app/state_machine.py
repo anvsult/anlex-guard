@@ -5,6 +5,7 @@ Core logic for managing system states and transitions
 import time
 import logging
 import threading
+import json
 from enum import Enum
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List
@@ -196,7 +197,8 @@ class SecurityStateMachine:
             self._log_event("ARM", f"Source: {source}")
             
             # Notify cloud
-            self._task_queue.put(("publish", ("mode", 1)))
+            # Notify cloud (use descriptive string so UI shows 'armed')
+            self._task_queue.put(("publish", ("mode", "armed")))
             
             return True
     
@@ -242,7 +244,8 @@ class SecurityStateMachine:
             self._log_event("DISARM", f"Source: {source}, Previous: {prev_mode.value}")
             
             # Notify cloud
-            self._task_queue.put(("publish", ("mode", 0)))
+            # Notify cloud (use descriptive string so UI shows 'disarmed')
+            self._task_queue.put(("publish", ("mode", "disarmed")))
             self._task_queue.put(("publish", ("alarm", 0)))
             
             return True
@@ -325,24 +328,6 @@ class SecurityStateMachine:
                     self.stealth_mode = False
                     logger.info("Stealth mode DISABLED via Adafruit IO")
                     self._log_event("STEALTH_MODE", "Disabled via Adafruit IO")
-            
-            elif feed_name == 'mode':
-                # Mode control: can be 'armed'/'disarmed' or 1/0
-                if value in ['armed', '1', 'on', 'true']:
-                    if self._mode == SystemMode.DISARMED:
-                        logger.info("ARM command received via Adafruit IO")
-                        self._log_event("REMOTE_ARM", "Adafruit IO command")
-                        self.arm_system(source="Adafruit IO")
-                    else:
-                        logger.info("ARM command via Adafruit IO ignored (already armed)")
-
-                elif value in ['disarmed', '0', 'off', 'false']:
-                    if self._mode != SystemMode.DISARMED:
-                        logger.info("DISARM command received via Adafruit IO")
-                        self._log_event("REMOTE_DISARM", "Adafruit IO command")
-                        self.disarm_system(source="Adafruit IO")
-                    else:
-                        logger.info("DISARM command via Adafruit IO ignored (already disarmed)")
         
         except Exception as e:
             logger.error(f"Error handling Adafruit control command: {e}", exc_info=True)
@@ -669,7 +654,13 @@ Please check your dashboard immediately.
         logger.info(f"EVENT: {event_type} - {details}")
         
         # Also publish event log trigger to Adafruit IO
-        self._task_queue.put(("publish", ("event_log", 1)))
+        # Publish the full event JSON so the frontend can parse and display it
+        try:
+            event_json = json.dumps(event)
+        except Exception:
+            event_json = str(event)
+
+        self._task_queue.put(("publish", ("event_log", event_json)))
     
     def get_event_log(self, limit: int = 100) -> List[Dict[str, Any]]:
         """Get recent event log entries"""

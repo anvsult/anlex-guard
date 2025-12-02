@@ -51,7 +51,7 @@ class Config:
         if os.getenv('ADAFRUIT_IO_KEY'):
             self._config['adafruit_io']['key'] = os.getenv('ADAFRUIT_IO_KEY')
         
-        # Brevo Email
+        # Brevo Email - REST API (deprecated)
         if os.getenv('BREVO_API_KEY'):
             self._config['email'] = self._config.get('email', {})
             self._config['email']['brevo_api_key'] = os.getenv('BREVO_API_KEY')
@@ -59,6 +59,21 @@ class Config:
             self._config['email']['from_email'] = os.getenv('EMAIL_FROM')
         if os.getenv('EMAIL_TO'):
             self._config['email']['to_email'] = os.getenv('EMAIL_TO')
+        
+        # Brevo SMTP Configuration (preferred)
+        if os.getenv('SMTP_HOST'):
+            self._config['email'] = self._config.get('email', {})
+            self._config['email']['smtp_host'] = os.getenv('SMTP_HOST')
+        if os.getenv('SMTP_PORT'):
+            self._config['email']['smtp_port'] = int(os.getenv('SMTP_PORT'))
+        if os.getenv('SMTP_USER'):
+            self._config['email']['smtp_user'] = os.getenv('SMTP_USER')
+        if os.getenv('SMTP_PASS'):
+            self._config['email']['smtp_pass'] = os.getenv('SMTP_PASS')
+        if os.getenv('ALERT_FROM'):
+            self._config['email']['alert_from'] = os.getenv('ALERT_FROM')
+        if os.getenv('ALERT_TO'):
+            self._config['email']['alert_to'] = os.getenv('ALERT_TO')
         
         # RFID Keys
         rfid_ids = os.getenv('AUTHORIZED_RFID_IDS', '')

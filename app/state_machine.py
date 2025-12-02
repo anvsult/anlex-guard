@@ -124,12 +124,15 @@ class SecurityStateMachine:
                 control_callback=self._handle_adafruit_control
             )
             
-            # Email Service (Brevo)
+            # Email Service (SMTP via Brevo)
             email_config = self.config.email_config
             self.email = EmailService(
-                api_key=email_config.get('brevo_api_key', ''),
-                from_email=email_config.get('from_email', ''),
-                to_email=email_config.get('to_email', '')
+                smtp_host=email_config.get('smtp_host'),
+                smtp_port=email_config.get('smtp_port'),
+                smtp_user=email_config.get('smtp_user'),
+                smtp_pass=email_config.get('smtp_pass'),
+                from_email=email_config.get('alert_from'),
+                to_email=email_config.get('alert_to')
             )
             
             # Storage Service

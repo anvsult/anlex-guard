@@ -1,39 +1,52 @@
 """
-Email Notification Service using Brevo (SendinBlue) API
+Email Notification Service using SMTP via Brevo (SendinBlue) Relay
 """
 import logging
-import requests
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from typing import Optional
 
 logger = logging.getLogger(__name__)
 
 class EmailService:
-    """Brevo (formerly SendinBlue) email service"""
+    """SMTP email service via Brevo relay"""
     
-    def __init__(self, api_key: str, from_email: str, to_email: str):
+    def __init__(self, smtp_host: str = None, smtp_port: int = None, 
+                 smtp_user: str = None, smtp_pass: str = None,
+                 from_email: str = None, to_email: str = None):
         """
-        Initialize email service
+        Initialize email service with SMTP configuration
         
         Args:
-            api_key: Brevo API key
+            smtp_host: SMTP server hostname
+            smtp_port: SMTP server port
+            smtp_user: SMTP authentication username
+            smtp_pass: SMTP authentication password
             from_email: Sender email address
             to_email: Recipient email address
         """
-        self.api_key = api_key
+        self.smtp_host = smtp_host
+        self.smtp_port = smtp_port
+        self.smtp_user = smtp_user
+        self.smtp_pass = smtp_pass
         self.from_email = from_email
         self.to_email = to_email
-        self.api_url = "https://api.brevo.com/v3/smtp/email"
         
-        self.enabled = bool(api_key and from_email and to_email)
+        # Check if SMTP is configured
+        self.enabled = bool(
+            smtp_host and smtp_port and smtp_user and smtp_pass 
+            and from_email and to_email
+        )
         
         if self.enabled:
-            logger.info(f"Email service enabled: {from_email} -> {to_email}")
+            logger.info(f"Email service enabled (SMTP): {from_email} -> {to_email}")
         else:
-            logger.warning("Email service disabled (missing configuration)")
+            logger.warning("Email service disabled (missing SMTP configuration)")
     
     def send_alert(self, subject: str, body: str) -> bool:
         """
-        Send email alert
+        Send email alert via SMTP
         
         Args:
             subject: Email subject
@@ -47,38 +60,33 @@ class EmailService:
             return False
         
         try:
-            headers = {
-                'accept': 'application/json',
-                'api-key': self.api_key,
-                'content-type': 'application/json'
-            }
+            # Create message
+            msg = MIMEMultipart()
+            msg['From'] = f"AnLex Guard <{self.from_email}>"
+            msg['To'] = self.to_email
+            msg['Subject'] = subject
             
-            payload = {
-                'sender': {
-                    'name': 'AnLex Guard',
-                    'email': self.from_email
-                },
-                'to': [
-                    {'email': self.to_email}
-                ],
-                'subject': subject,
-                'textContent': body
-            }
+            # Attach body
+            msg.attach(MIMEText(body, 'plain'))
             
-            response = requests.post(
-                self.api_url,
-                headers=headers,
-                json=payload,
-                timeout=10
-            )
-            
-            if response.status_code == 201:
-                logger.info(f"Email sent successfully: {subject}")
-                return True
-            else:
-                logger.error(f"Email send failed: {response.status_code} - {response.text}")
-                return False
+            # Connect to SMTP server
+            logger.debug(f"Connecting to SMTP server: {self.smtp_host}:{self.smtp_port}")
+            with smtplib.SMTP(self.smtp_host, self.smtp_port, timeout=10) as server:
+                server.starttls()  # Enable TLS encryption
+                server.login(self.smtp_user, self.smtp_pass)
                 
+                # Send email
+                server.send_message(msg)
+                
+            logger.info(f"Email sent successfully via SMTP: {subject}")
+            return True
+                
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"SMTP authentication failed: {e}")
+            return False
+        except smtplib.SMTPException as e:
+            logger.error(f"SMTP error: {e}")
+            return False
         except Exception as e:
             logger.error(f"Email send error: {e}", exc_info=True)
             return False

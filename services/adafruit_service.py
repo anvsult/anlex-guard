@@ -100,7 +100,12 @@ class AdafruitService:
                     # Try to parse JSON, fallback to plain string
                     try:
                         data = json.loads(payload)
-                        value = data.get('value', payload)
+                        # If data is a dict with 'value' key, extract it
+                        # Otherwise use the parsed data directly
+                        if isinstance(data, dict):
+                            value = data.get('value', payload)
+                        else:
+                            value = data
                     except json.JSONDecodeError:
                         value = payload
                     
@@ -156,7 +161,7 @@ class AdafruitService:
                 result = self.client.publish(topic, payload=payload, qos=1)
                 rc = getattr(result, 'rc', None)
                 if rc == mqtt.MQTT_ERR_SUCCESS:
-                    logger.debug(f"Published via MQTT to {feed_name}: {value}")
+                    logger.info(f"Published via MQTT to {feed_name}: {value}")
                     success = True
                 else:
                     logger.warning(f"MQTT publish returned rc={rc}")
@@ -170,7 +175,7 @@ class AdafruitService:
                 headers = {'X-AIO-Key': self.key, 'Content-Type': 'application/json'}
                 response = requests.post(url, headers=headers, json={"value": value}, timeout=5)
                 if response.status_code in (200, 201):
-                    logger.debug(f"Published via REST to {feed_name}: {value}")
+                    logger.info(f"Published via REST to {feed_name}: {value}")
                     success = True
                 else:
                     logger.warning(f"REST publish failed: status={response.status_code} body={response.text}")

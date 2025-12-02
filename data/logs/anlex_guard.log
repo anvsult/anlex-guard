@@ -666,3 +666,2678 @@ RuntimeError: Camera capture failed: Camera not available
 2025-12-01 02:38:36 [INFO    ] [5706-547876984000] services.adafruit_service: Adafruit IO disconnected
 2025-12-01 02:38:36 [INFO    ] [5706-547876984000] app.state_machine: State machine stopped
 2025-12-01 02:38:36 [INFO    ] [5706-547876984000] __main__: AnLex Guard shutdown complete
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] root: Logging system initialized
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] __main__: ============================================================
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] __main__: ============================================================
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Initializing hardware...
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.sensors: RFID reader initialized
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Hardware initialization successful
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Initializing services...
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Services initialization successful
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: State machine initialization complete
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Starting state machine...
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:00:57 [INFO    ] [2739-547910054272] app.state_machine: Main logic loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: Main Logic
+2025-12-02 19:00:57 [INFO    ] [2739-547901600128] app.state_machine: LED control loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: LED Control
+2025-12-02 19:00:57 [INFO    ] [2739-547893145984] app.state_machine: Motion sensor loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:00:57 [INFO    ] [2739-547406999936] app.state_machine: RFID reader loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:00:57 [INFO    ] [2739-547398545792] app.state_machine: Environmental sensors loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: Environmental
+2025-12-02 19:00:57 [INFO    ] [2739-547390091648] app.state_machine: Task processor loop started
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] app.state_machine: Started thread: Task Processor
+2025-12-02 19:00:57 [INFO    ] [2739-548341593280] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:00:57 [INFO    ] [2739-547918508416] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:00:57 [INFO    ] [2739-547918508416] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:00:57 [INFO    ] [2739-547918508416] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:00:57 [INFO    ] [2739-547918508416] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:00:57 [INFO    ] [2739-547918508416] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:00:58 [INFO    ] [2739-548341593280] app.state_machine: State machine started successfully
+2025-12-02 19:00:58 [INFO    ] [2739-548341593280] __main__: State machine initialized and started
+2025-12-02 19:00:58 [INFO    ] [2739-548341593280] api.routes: API routes registered
+2025-12-02 19:00:58 [INFO    ] [2739-548341593280] api.app: Flask application created
+2025-12-02 19:00:58 [INFO    ] [2739-548341593280] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:02:29 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:02:29 [INFO    ] [2739-547918508416] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:02:45 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:02:45 [INFO    ] [2739-547918508416] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:02:50 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:02:50 [INFO    ] [2739-547918508416] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:03:02 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:03:02 [INFO    ] [2739-547918508416] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:03:08 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:03:08 [INFO    ] [2739-547918508416] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:03:20 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:03:20 [INFO    ] [2739-547918508416] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:03:27 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:03:27 [INFO    ] [2739-547918508416] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:03:31 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 19:03:31 [INFO    ] [2739-547918508416] hardware.actuators: Locking servo to 90°
+2025-12-02 19:03:32 [INFO    ] [2739-547918508416] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 19:03:32 [INFO    ] [2739-547918508416] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 19:03:37 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 19:03:37 [INFO    ] [2739-547918508416] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:03:37 [INFO    ] [2739-547918508416] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 19:03:37 [INFO    ] [2739-547918508416] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 19:11:54 [INFO    ] [2739-547918508416] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:11:54 [INFO    ] [2739-547918508416] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:18:27 [INFO    ] [2739-548341593280] __main__: Shutdown signal received
+2025-12-02 19:18:27 [INFO    ] [2739-548341593280] app.state_machine: Stopping state machine...
+2025-12-02 19:18:27 [INFO    ] [2739-547406999936] app.state_machine: RFID reader loop stopped
+2025-12-02 19:18:27 [INFO    ] [2739-547893145984] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:18:27 [INFO    ] [2739-547901600128] app.state_machine: LED control loop stopped
+2025-12-02 19:18:27 [INFO    ] [2739-547390091648] app.state_machine: Task processor loop stopped
+2025-12-02 19:18:31 [INFO    ] [2739-548341593280] app.state_machine: Hardware cleanup complete
+2025-12-02 19:18:32 [WARNING ] [2739-548341593280] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:18:32 [INFO    ] [2739-548341593280] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:18:32 [INFO    ] [2739-548341593280] app.state_machine: State machine stopped
+2025-12-02 19:18:32 [INFO    ] [2739-548341593280] __main__: AnLex Guard shutdown complete
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] root: Logging system initialized
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: ============================================================
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: ============================================================
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Initializing hardware...
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.sensors: RFID reader initialized
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Hardware initialization successful
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Initializing services...
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Services initialization successful
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: State machine initialization complete
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Starting state machine...
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:18:40 [INFO    ] [3906-547961106816] app.state_machine: Main logic loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: Main Logic
+2025-12-02 19:18:40 [INFO    ] [3906-547952456064] app.state_machine: LED control loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: LED Control
+2025-12-02 19:18:40 [INFO    ] [3906-547474108800] app.state_machine: Motion sensor loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:18:40 [INFO    ] [3906-547465654656] app.state_machine: RFID reader loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:18:40 [INFO    ] [3906-547457200512] app.state_machine: Environmental sensors loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: Environmental
+2025-12-02 19:18:40 [INFO    ] [3906-547448746368] app.state_machine: Task processor loop started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: Started thread: Task Processor
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: mode
+2025-12-02 19:18:40 [INFO    ] [3906-547969560960] services.adafruit_service: Subscribed to control feed: alarm
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] app.state_machine: State machine started successfully
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: State machine initialized and started
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] api.routes: API routes registered
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] api.app: Flask application created
+2025-12-02 19:18:40 [INFO    ] [3906-548317627584] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:18:50 [INFO    ] [3906-547969560960] services.adafruit_service: Control command received: mode = armed
+2025-12-02 19:18:50 [INFO    ] [3906-547969560960] app.state_machine: ARM command received via Adafruit IO
+2025-12-02 19:18:50 [INFO    ] [3906-547969560960] app.state_machine: EVENT: REMOTE_ARM - Adafruit IO command
+2025-12-02 19:18:50 [INFO    ] [3906-547969560960] app.state_machine: ARMING system (source: Adafruit IO)
+2025-12-02 19:18:50 [INFO    ] [3906-547969560960] hardware.actuators: Locking servo to 90°
+2025-12-02 19:18:51 [INFO    ] [3906-547969560960] app.state_machine: EVENT: ARM - Source: Adafruit IO
+2025-12-02 19:18:51 [ERROR   ] [3906-547969560960] services.adafruit_service: Error processing MQTT message: 'int' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/services/adafruit_service.py", line 110, in _on_message
+    value = data.get('value', payload)
+            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-12-02 19:18:51 [WARNING ] [3906-547474108800] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:18:51 [INFO    ] [3906-547474108800] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:18:51 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:18:51 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:21 [WARNING ] [3906-547961106816] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:19:21 [INFO    ] [3906-547961106816] hardware.actuators: Siren started
+2025-12-02 19:19:21 [INFO    ] [3906-547961106816] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:19:22 [ERROR   ] [3906-547448746368] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:19:22 [INFO    ] [3906-547448746368] app.state_machine: Email alert sent successfully
+2025-12-02 19:19:22 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:22 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:23 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:23 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:24 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:24 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:25 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:25 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:26 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:26 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:27 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:27 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:28 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:28 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:29 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:29 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:30 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:30 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:31 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:31 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:32 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:32 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:33 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:33 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:34 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:34 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:35 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:35 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:36 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:36 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:37 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:37 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:38 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:38 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:39 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:39 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:40 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:40 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:41 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:41 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:42 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:42 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:43 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:43 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:44 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:44 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:45 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:45 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:46 [ERROR   ] [3906-547448746368] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:19:46 [ERROR   ] [3906-547448746368] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:19:47 [INFO    ] [3906-548317627584] __main__: Shutdown signal received
+2025-12-02 19:19:47 [INFO    ] [3906-548317627584] app.state_machine: Stopping state machine...
+2025-12-02 19:19:47 [INFO    ] [3906-548317627584] hardware.actuators: Siren stopped
+2025-12-02 19:19:47 [INFO    ] [3906-547465654656] app.state_machine: RFID reader loop stopped
+2025-12-02 19:19:47 [INFO    ] [3906-547961106816] app.state_machine: Main logic loop stopped
+2025-12-02 19:19:47 [INFO    ] [3906-547952456064] app.state_machine: LED control loop stopped
+2025-12-02 19:19:47 [INFO    ] [3906-547474108800] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:19:47 [INFO    ] [3906-547448746368] app.state_machine: Task processor loop stopped
+2025-12-02 19:19:49 [INFO    ] [3906-548317627584] app.state_machine: Hardware cleanup complete
+2025-12-02 19:19:49 [WARNING ] [3906-548317627584] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:19:49 [INFO    ] [3906-548317627584] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:19:49 [INFO    ] [3906-548317627584] app.state_machine: State machine stopped
+2025-12-02 19:19:49 [INFO    ] [3906-548317627584] __main__: AnLex Guard shutdown complete
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] root: Logging system initialized
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] __main__: ============================================================
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] __main__: ============================================================
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Initializing hardware...
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.sensors: RFID reader initialized
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Hardware initialization successful
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Initializing services...
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Services initialization successful
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: State machine initialization complete
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Starting state machine...
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:19:54 [INFO    ] [4122-547896488320] app.state_machine: Main logic loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: Main Logic
+2025-12-02 19:19:54 [INFO    ] [4122-547888034176] app.state_machine: LED control loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: LED Control
+2025-12-02 19:19:54 [INFO    ] [4122-547406999936] app.state_machine: Motion sensor loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:19:54 [INFO    ] [4122-547398545792] app.state_machine: RFID reader loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:19:54 [INFO    ] [4122-547390091648] app.state_machine: Environmental sensors loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: Environmental
+2025-12-02 19:19:54 [INFO    ] [4122-547381637504] app.state_machine: Task processor loop started
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] app.state_machine: Started thread: Task Processor
+2025-12-02 19:19:54 [INFO    ] [4122-548253193408] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: mode
+2025-12-02 19:19:54 [INFO    ] [4122-547905139072] services.adafruit_service: Subscribed to control feed: alarm
+2025-12-02 19:19:55 [INFO    ] [4122-548253193408] app.state_machine: State machine started successfully
+2025-12-02 19:19:55 [INFO    ] [4122-548253193408] __main__: State machine initialized and started
+2025-12-02 19:19:55 [INFO    ] [4122-548253193408] api.routes: API routes registered
+2025-12-02 19:19:55 [INFO    ] [4122-548253193408] api.app: Flask application created
+2025-12-02 19:19:55 [INFO    ] [4122-548253193408] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:20:10 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:20:10 [INFO    ] [4122-547905139072] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = armed
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] app.state_machine: ARM command received via Adafruit IO
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] app.state_machine: EVENT: REMOTE_ARM - Adafruit IO command
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] app.state_machine: ARMING system (source: Adafruit IO)
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] hardware.actuators: Locking servo to 90°
+2025-12-02 19:20:16 [INFO    ] [4122-547905139072] app.state_machine: EVENT: ARM - Source: Adafruit IO
+2025-12-02 19:20:16 [WARNING ] [4122-547406999936] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:20:16 [INFO    ] [4122-547406999936] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:20:16 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:20:16 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:20:16 [ERROR   ] [4122-547905139072] services.adafruit_service: Error processing MQTT message: 'int' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/services/adafruit_service.py", line 110, in _on_message
+    value = data.get('value', payload)
+            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-12-02 19:20:46 [WARNING ] [4122-547896488320] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:20:46 [INFO    ] [4122-547896488320] hardware.actuators: Siren started
+2025-12-02 19:20:46 [INFO    ] [4122-547896488320] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:20:47 [ERROR   ] [4122-547356275072] hardware.sensors: DHT critical error: unsigned short is greater than maximum
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/sensors.py", line 73, in read
+    temperature = self._sensor.temperature
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/.venv/lib/python3.11/site-packages/adafruit_dht.py", line 273, in temperature
+    self.measure()
+  File "/home/chronyx/anlex-guard/.venv/lib/python3.11/site-packages/adafruit_dht.py", line 218, in measure
+    pulses = self._get_pulses_pulseio()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/.venv/lib/python3.11/site-packages/adafruit_dht.py", line 148, in _get_pulses_pulseio
+    pulses.append(self.pulse_in.popleft())
+OverflowError: unsigned short is greater than maximum
+2025-12-02 19:20:47 [ERROR   ] [4122-547381637504] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:20:47 [INFO    ] [4122-547381637504] app.state_machine: Email alert sent successfully
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] hardware.actuators: Siren stopped
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:20:50 [INFO    ] [4122-547398545792] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 19:21:27 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:21:27 [INFO    ] [4122-547905139072] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:22:13 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: stealth_mode = ON
+2025-12-02 19:22:13 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode: ENABLED
+2025-12-02 19:22:13 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode ENABLED via Adafruit IO
+2025-12-02 19:22:13 [INFO    ] [4122-547905139072] app.state_machine: EVENT: STEALTH_MODE - Enabled via Adafruit IO
+2025-12-02 19:22:16 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = disarmed
+2025-12-02 19:22:16 [INFO    ] [4122-547905139072] app.state_machine: DISARM command via Adafruit IO ignored (already disarmed)
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = armed
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] app.state_machine: ARM command received via Adafruit IO
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] app.state_machine: EVENT: REMOTE_ARM - Adafruit IO command
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] app.state_machine: ARMING system (source: Adafruit IO)
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] hardware.actuators: Locking servo to 90°
+2025-12-02 19:22:20 [INFO    ] [4122-547905139072] app.state_machine: EVENT: ARM - Source: Adafruit IO
+2025-12-02 19:22:20 [WARNING ] [4122-547406999936] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:22:20 [INFO    ] [4122-547406999936] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:22:20 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:22:20 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:22:21 [ERROR   ] [4122-547905139072] services.adafruit_service: Error processing MQTT message: 'int' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/services/adafruit_service.py", line 110, in _on_message
+    value = data.get('value', payload)
+            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-12-02 19:22:24 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: stealth_mode = OFF
+2025-12-02 19:22:24 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode: DISABLED
+2025-12-02 19:22:24 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode DISABLED via Adafruit IO
+2025-12-02 19:22:24 [INFO    ] [4122-547905139072] app.state_machine: EVENT: STEALTH_MODE - Disabled via Adafruit IO
+2025-12-02 19:22:26 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: stealth_mode = OFF
+2025-12-02 19:22:26 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode: DISABLED
+2025-12-02 19:22:26 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode DISABLED via Adafruit IO
+2025-12-02 19:22:26 [INFO    ] [4122-547905139072] app.state_machine: EVENT: STEALTH_MODE - Disabled via Adafruit IO
+2025-12-02 19:22:27 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: stealth_mode = ON
+2025-12-02 19:22:27 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode: ENABLED
+2025-12-02 19:22:27 [INFO    ] [4122-547905139072] app.state_machine: Stealth mode ENABLED via Adafruit IO
+2025-12-02 19:22:27 [INFO    ] [4122-547905139072] app.state_machine: EVENT: STEALTH_MODE - Enabled via Adafruit IO
+2025-12-02 19:22:50 [WARNING ] [4122-547896488320] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:22:50 [INFO    ] [4122-547896488320] hardware.actuators: Siren started
+2025-12-02 19:22:50 [INFO    ] [4122-547896488320] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:22:51 [ERROR   ] [4122-547381637504] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:22:51 [INFO    ] [4122-547381637504] app.state_machine: Email alert sent successfully
+2025-12-02 19:22:51 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:22:51 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:22:51 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:22:51 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:22:52 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:22:52 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:22:53 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:22:53 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:22:54 [INFO    ] [4122-547398545792] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:22:54 [INFO    ] [4122-547398545792] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:22:54 [INFO    ] [4122-547398545792] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 19:22:54 [INFO    ] [4122-547398545792] hardware.actuators: Siren stopped
+2025-12-02 19:22:54 [INFO    ] [4122-547398545792] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:22:55 [INFO    ] [4122-547398545792] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 19:23:08 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:23:08 [INFO    ] [4122-547905139072] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:33:55 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = disarmed
+2025-12-02 19:33:55 [INFO    ] [4122-547905139072] app.state_machine: DISARM command via Adafruit IO ignored (already disarmed)
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = armed
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] app.state_machine: ARM command received via Adafruit IO
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] app.state_machine: EVENT: REMOTE_ARM - Adafruit IO command
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] app.state_machine: ARMING system (source: Adafruit IO)
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] hardware.actuators: Locking servo to 90°
+2025-12-02 19:34:00 [INFO    ] [4122-547905139072] app.state_machine: EVENT: ARM - Source: Adafruit IO
+2025-12-02 19:34:01 [ERROR   ] [4122-547905139072] services.adafruit_service: Error processing MQTT message: 'int' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/services/adafruit_service.py", line 110, in _on_message
+    value = data.get('value', payload)
+            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-12-02 19:34:01 [WARNING ] [4122-547406999936] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:34:01 [INFO    ] [4122-547406999936] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:34:01 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:01 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:31 [WARNING ] [4122-547896488320] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:34:31 [INFO    ] [4122-547896488320] hardware.actuators: Siren started
+2025-12-02 19:34:31 [INFO    ] [4122-547896488320] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:34:31 [ERROR   ] [4122-547381637504] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:34:31 [INFO    ] [4122-547381637504] app.state_machine: Email alert sent successfully
+2025-12-02 19:34:32 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:32 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:33 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:33 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:34 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:34 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:35 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:35 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:36 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:36 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:37 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:37 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:38 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:38 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:39 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:39 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:40 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:40 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:41 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:34:41 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] hardware.actuators: Siren stopped
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:34:42 [INFO    ] [4122-547398545792] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 19:35:05 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = disarmed
+2025-12-02 19:35:05 [INFO    ] [4122-547905139072] app.state_machine: DISARM command via Adafruit IO ignored (already disarmed)
+2025-12-02 19:35:11 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: mode = armed
+2025-12-02 19:35:11 [INFO    ] [4122-547905139072] app.state_machine: ARM command received via Adafruit IO
+2025-12-02 19:35:11 [INFO    ] [4122-547905139072] app.state_machine: EVENT: REMOTE_ARM - Adafruit IO command
+2025-12-02 19:35:11 [INFO    ] [4122-547905139072] app.state_machine: ARMING system (source: Adafruit IO)
+2025-12-02 19:35:11 [INFO    ] [4122-547905139072] hardware.actuators: Locking servo to 90°
+2025-12-02 19:35:12 [INFO    ] [4122-547905139072] app.state_machine: EVENT: ARM - Source: Adafruit IO
+2025-12-02 19:35:12 [ERROR   ] [4122-547905139072] services.adafruit_service: Error processing MQTT message: 'int' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/services/adafruit_service.py", line 110, in _on_message
+    value = data.get('value', payload)
+            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-12-02 19:35:12 [WARNING ] [4122-547406999936] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:35:12 [INFO    ] [4122-547406999936] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:35:12 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:35:12 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:35:42 [WARNING ] [4122-547896488320] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:35:42 [INFO    ] [4122-547896488320] hardware.actuators: Siren started
+2025-12-02 19:35:42 [INFO    ] [4122-547896488320] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:35:43 [ERROR   ] [4122-547381637504] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:35:43 [INFO    ] [4122-547381637504] app.state_machine: Email alert sent successfully
+2025-12-02 19:35:43 [ERROR   ] [4122-547381637504] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:35:43 [ERROR   ] [4122-547381637504] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 616, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] hardware.actuators: Siren stopped
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:35:44 [INFO    ] [4122-547398545792] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 19:49:05 [INFO    ] [4122-548253193408] __main__: Shutdown signal received
+2025-12-02 19:49:05 [INFO    ] [4122-548253193408] app.state_machine: Stopping state machine...
+2025-12-02 19:49:05 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:49:05 [INFO    ] [4122-547905139072] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:49:05 [INFO    ] [4122-547896488320] app.state_machine: Main logic loop stopped
+2025-12-02 19:49:05 [INFO    ] [4122-547398545792] app.state_machine: RFID reader loop stopped
+2025-12-02 19:49:05 [INFO    ] [4122-547406999936] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:49:05 [INFO    ] [4122-547381637504] app.state_machine: Task processor loop stopped
+2025-12-02 19:49:06 [INFO    ] [4122-547888034176] app.state_machine: LED control loop stopped
+2025-12-02 19:49:08 [INFO    ] [4122-548253193408] app.state_machine: Hardware cleanup complete
+2025-12-02 19:49:08 [INFO    ] [4122-547905139072] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:49:08 [INFO    ] [4122-547905139072] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:49:08 [WARNING ] [4122-548253193408] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:49:08 [INFO    ] [4122-548253193408] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:49:08 [INFO    ] [4122-548253193408] app.state_machine: State machine stopped
+2025-12-02 19:49:08 [INFO    ] [4122-548253193408] __main__: AnLex Guard shutdown complete
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] root: Logging system initialized
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] __main__: ============================================================
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] __main__: ============================================================
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Initializing hardware...
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.sensors: RFID reader initialized
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Hardware initialization successful
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Initializing services...
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Services initialization successful
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: State machine initialization complete
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Starting state machine...
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:49:11 [INFO    ] [5580-547272782208] app.state_machine: Main logic loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: Main Logic
+2025-12-02 19:49:11 [INFO    ] [5580-547264328064] app.state_machine: LED control loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: LED Control
+2025-12-02 19:49:11 [INFO    ] [5580-547255873920] app.state_machine: Motion sensor loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:49:11 [INFO    ] [5580-547247419776] app.state_machine: RFID reader loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:49:11 [INFO    ] [5580-547238965632] app.state_machine: Environmental sensors loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: Environmental
+2025-12-02 19:49:11 [INFO    ] [5580-547230511488] app.state_machine: Task processor loop started
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] app.state_machine: Started thread: Task Processor
+2025-12-02 19:49:11 [INFO    ] [5580-547968021696] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: mode
+2025-12-02 19:49:11 [INFO    ] [5580-547619926400] services.adafruit_service: Subscribed to control feed: alarm
+2025-12-02 19:49:12 [INFO    ] [5580-547968021696] app.state_machine: State machine started successfully
+2025-12-02 19:49:12 [INFO    ] [5580-547968021696] __main__: State machine initialized and started
+2025-12-02 19:49:12 [INFO    ] [5580-547968021696] api.routes: API routes registered
+2025-12-02 19:49:12 [INFO    ] [5580-547968021696] api.app: Flask application created
+2025-12-02 19:49:12 [INFO    ] [5580-547968021696] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:49:17 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 19:49:17 [INFO    ] [5580-547619926400] hardware.actuators: Locking servo to 90°
+2025-12-02 19:49:17 [INFO    ] [5580-547619926400] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 19:49:17 [INFO    ] [5580-547619926400] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 19:49:23 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 19:49:23 [INFO    ] [5580-547619926400] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:49:24 [INFO    ] [5580-547619926400] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 19:49:24 [INFO    ] [5580-547619926400] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 19:49:50 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:49:50 [INFO    ] [5580-547619926400] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:50:06 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 19:50:06 [INFO    ] [5580-547619926400] hardware.actuators: Locking servo to 90°
+2025-12-02 19:50:06 [INFO    ] [5580-547619926400] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 19:50:06 [INFO    ] [5580-547619926400] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 19:50:09 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 19:50:09 [INFO    ] [5580-547619926400] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:50:09 [INFO    ] [5580-547619926400] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 19:50:10 [INFO    ] [5580-547619926400] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 19:50:11 [INFO    ] [5580-547619926400] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 19:50:11 [INFO    ] [5580-547619926400] hardware.actuators: Locking servo to 90°
+2025-12-02 19:50:11 [INFO    ] [5580-547619926400] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 19:50:11 [INFO    ] [5580-547619926400] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 19:51:17 [INFO    ] [5580-547968021696] __main__: Shutdown signal received
+2025-12-02 19:51:17 [INFO    ] [5580-547968021696] app.state_machine: Stopping state machine...
+2025-12-02 19:51:17 [INFO    ] [5580-547255873920] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:51:17 [INFO    ] [5580-547272782208] app.state_machine: Main logic loop stopped
+2025-12-02 19:51:17 [INFO    ] [5580-547247419776] app.state_machine: RFID reader loop stopped
+2025-12-02 19:51:17 [INFO    ] [5580-547264328064] app.state_machine: LED control loop stopped
+2025-12-02 19:51:18 [INFO    ] [5580-547230511488] app.state_machine: Task processor loop stopped
+2025-12-02 19:51:19 [INFO    ] [5580-547968021696] app.state_machine: Hardware cleanup complete
+2025-12-02 19:51:20 [WARNING ] [5580-547968021696] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:51:20 [INFO    ] [5580-547968021696] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:51:20 [INFO    ] [5580-547968021696] app.state_machine: State machine stopped
+2025-12-02 19:51:20 [INFO    ] [5580-547968021696] __main__: AnLex Guard shutdown complete
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] root: Logging system initialized
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] __main__: ============================================================
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] __main__: ============================================================
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Initializing hardware...
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.sensors: RFID reader initialized
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Hardware initialization successful
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Initializing services...
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Services initialization successful
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: State machine initialization complete
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Starting state machine...
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:51:25 [INFO    ] [5882-547770331520] app.state_machine: Main logic loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: Main Logic
+2025-12-02 19:51:25 [INFO    ] [5882-547761680768] app.state_machine: LED control loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: LED Control
+2025-12-02 19:51:25 [INFO    ] [5882-547753226624] app.state_machine: Motion sensor loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:51:25 [INFO    ] [5882-547272782208] app.state_machine: RFID reader loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:51:25 [INFO    ] [5882-547264328064] app.state_machine: Environmental sensors loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: Environmental
+2025-12-02 19:51:25 [INFO    ] [5882-547255873920] app.state_machine: Task processor loop started
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] app.state_machine: Started thread: Task Processor
+2025-12-02 19:51:25 [INFO    ] [5882-548126823616] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:51:25 [INFO    ] [5882-547778785664] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:51:25 [INFO    ] [5882-547778785664] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:51:25 [INFO    ] [5882-547778785664] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:51:25 [INFO    ] [5882-547778785664] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:51:25 [INFO    ] [5882-547778785664] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:51:26 [INFO    ] [5882-548126823616] app.state_machine: State machine started successfully
+2025-12-02 19:51:26 [INFO    ] [5882-548126823616] __main__: State machine initialized and started
+2025-12-02 19:51:26 [INFO    ] [5882-548126823616] api.routes: API routes registered
+2025-12-02 19:51:26 [INFO    ] [5882-548126823616] api.app: Flask application created
+2025-12-02 19:51:26 [INFO    ] [5882-548126823616] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:51:47 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:51:47 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:51:47 [INFO    ] [5882-547272782208] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:51:47 [INFO    ] [5882-547272782208] hardware.actuators: Locking servo to 90°
+2025-12-02 19:51:48 [INFO    ] [5882-547272782208] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:51:48 [WARNING ] [5882-547753226624] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:51:48 [INFO    ] [5882-547753226624] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:51:48 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:51:48 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:51:54 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:51:54 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:51:54 [INFO    ] [5882-547272782208] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 19:51:54 [INFO    ] [5882-547272782208] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:51:54 [INFO    ] [5882-547272782208] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 19:51:58 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:51:58 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:51:58 [INFO    ] [5882-547272782208] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:51:58 [INFO    ] [5882-547272782208] hardware.actuators: Locking servo to 90°
+2025-12-02 19:51:59 [INFO    ] [5882-547272782208] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:51:59 [WARNING ] [5882-547753226624] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:51:59 [INFO    ] [5882-547753226624] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:51:59 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:51:59 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:52:21 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:52:21 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:52:21 [INFO    ] [5882-547272782208] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 19:52:21 [INFO    ] [5882-547272782208] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:52:21 [INFO    ] [5882-547272782208] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 19:54:18 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:54:18 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:54:18 [INFO    ] [5882-547272782208] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:54:18 [INFO    ] [5882-547272782208] hardware.actuators: Locking servo to 90°
+2025-12-02 19:54:18 [INFO    ] [5882-547272782208] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:54:18 [WARNING ] [5882-547753226624] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:54:18 [INFO    ] [5882-547753226624] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:54:18 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:18 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:49 [WARNING ] [5882-547770331520] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 19:54:49 [INFO    ] [5882-547770331520] hardware.actuators: Siren started
+2025-12-02 19:54:49 [INFO    ] [5882-547770331520] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 19:54:49 [ERROR   ] [5882-547255873920] services.email_service: Email send failed: 401 - {"message":"Key not found","code":"unauthorized"}
+
+2025-12-02 19:54:49 [INFO    ] [5882-547255873920] app.state_machine: Email alert sent successfully
+2025-12-02 19:54:49 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:49 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:50 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:50 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:51 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:51 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:52 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:52 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:53 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:53 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:54 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:54 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:55 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:55 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:56 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:56 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:57 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:58 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:58 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:58 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:54:59 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:54:59 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:01 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:01 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:02 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:02 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:03 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:03 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:04 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:04 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:05 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:05 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:06 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:06 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:07 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:07 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:08 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:08 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:09 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:09 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:10 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:10 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:11 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:11 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:12 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:12 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:13 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:13 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:14 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:14 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:15 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:15 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:16 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:16 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:17 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:17 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:18 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:18 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:19 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:19 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:20 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:20 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:21 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:21 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:22 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:22 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:23 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:23 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:24 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:24 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:25 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:25 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:26 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:26 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:27 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:27 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:28 [ERROR   ] [5882-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:28 [ERROR   ] [5882-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] hardware.actuators: Siren stopped
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:55:28 [INFO    ] [5882-547272782208] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 19:55:32 [INFO    ] [5882-548126823616] __main__: Shutdown signal received
+2025-12-02 19:55:32 [INFO    ] [5882-548126823616] app.state_machine: Stopping state machine...
+2025-12-02 19:55:32 [INFO    ] [5882-547272782208] app.state_machine: RFID reader loop stopped
+2025-12-02 19:55:32 [INFO    ] [5882-547770331520] app.state_machine: Main logic loop stopped
+2025-12-02 19:55:32 [INFO    ] [5882-547255873920] app.state_machine: Task processor loop stopped
+2025-12-02 19:55:33 [INFO    ] [5882-547761680768] app.state_machine: LED control loop stopped
+2025-12-02 19:55:33 [INFO    ] [5882-547753226624] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:55:35 [INFO    ] [5882-548126823616] app.state_machine: Hardware cleanup complete
+2025-12-02 19:55:36 [WARNING ] [5882-548126823616] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:55:36 [INFO    ] [5882-548126823616] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:55:36 [INFO    ] [5882-548126823616] app.state_machine: State machine stopped
+2025-12-02 19:55:36 [INFO    ] [5882-548126823616] __main__: AnLex Guard shutdown complete
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] root: Logging system initialized
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] __main__: ============================================================
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] __main__: ============================================================
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Initializing hardware...
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.sensors: RFID reader initialized
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Hardware initialization successful
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Initializing services...
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Services initialization successful
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: State machine initialization complete
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Starting state machine...
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:55:38 [INFO    ] [6322-547524309376] app.state_machine: Main logic loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: Main Logic
+2025-12-02 19:55:38 [INFO    ] [6322-547515855232] app.state_machine: LED control loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: LED Control
+2025-12-02 19:55:38 [INFO    ] [6322-547507401088] app.state_machine: Motion sensor loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:55:38 [INFO    ] [6322-547498946944] app.state_machine: RFID reader loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:55:38 [INFO    ] [6322-547490492800] app.state_machine: Environmental sensors loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: Environmental
+2025-12-02 19:55:38 [INFO    ] [6322-546937237888] app.state_machine: Task processor loop started
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] app.state_machine: Started thread: Task Processor
+2025-12-02 19:55:38 [INFO    ] [6322-547951256768] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:55:38 [INFO    ] [6322-547532763520] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:55:38 [INFO    ] [6322-547532763520] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:55:38 [INFO    ] [6322-547532763520] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:55:38 [INFO    ] [6322-547532763520] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:55:38 [INFO    ] [6322-547532763520] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:55:39 [INFO    ] [6322-547951256768] app.state_machine: State machine started successfully
+2025-12-02 19:55:39 [INFO    ] [6322-547951256768] __main__: State machine initialized and started
+2025-12-02 19:55:39 [INFO    ] [6322-547951256768] api.routes: API routes registered
+2025-12-02 19:55:39 [INFO    ] [6322-547951256768] api.app: Flask application created
+2025-12-02 19:55:39 [INFO    ] [6322-547951256768] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:55:42 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:55:42 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:55:42 [INFO    ] [6322-547498946944] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:55:42 [INFO    ] [6322-547498946944] hardware.actuators: Locking servo to 90°
+2025-12-02 19:55:43 [INFO    ] [6322-547498946944] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:55:43 [WARNING ] [6322-547507401088] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:55:43 [INFO    ] [6322-547507401088] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:55:43 [ERROR   ] [6322-546937237888] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:55:43 [ERROR   ] [6322-546937237888] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:55:45 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:55:45 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:55:45 [INFO    ] [6322-547498946944] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 19:55:45 [INFO    ] [6322-547498946944] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:55:45 [INFO    ] [6322-547498946944] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 19:56:07 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:56:07 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:56:07 [INFO    ] [6322-547498946944] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:56:07 [INFO    ] [6322-547498946944] hardware.actuators: Locking servo to 90°
+2025-12-02 19:56:07 [INFO    ] [6322-547498946944] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:56:08 [WARNING ] [6322-547507401088] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:56:08 [INFO    ] [6322-547507401088] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:56:08 [ERROR   ] [6322-546937237888] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:56:08 [ERROR   ] [6322-546937237888] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:56:15 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:56:15 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:56:15 [INFO    ] [6322-547498946944] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 19:56:15 [INFO    ] [6322-547498946944] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:56:16 [INFO    ] [6322-547498946944] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 19:56:44 [ERROR   ] [6322-547498946944] mfrc522Logger: AUTH ERROR!!
+2025-12-02 19:56:44 [ERROR   ] [6322-547498946944] mfrc522Logger: AUTH ERROR(status2reg & 0x08) != 0
+2025-12-02 19:56:44 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:56:44 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:56:44 [INFO    ] [6322-547498946944] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 19:56:44 [INFO    ] [6322-547498946944] hardware.actuators: Locking servo to 90°
+2025-12-02 19:56:45 [INFO    ] [6322-547498946944] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 19:56:45 [WARNING ] [6322-547507401088] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 19:56:45 [INFO    ] [6322-547507401088] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 19:56:45 [ERROR   ] [6322-546937237888] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 19:56:45 [ERROR   ] [6322-546937237888] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 19:57:08 [INFO    ] [6322-547498946944] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 19:57:08 [INFO    ] [6322-547498946944] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 19:57:08 [INFO    ] [6322-547498946944] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 19:57:08 [INFO    ] [6322-547498946944] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:57:08 [INFO    ] [6322-547498946944] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 19:57:33 [INFO    ] [6322-547532763520] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:57:33 [INFO    ] [6322-547532763520] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:57:35 [INFO    ] [6322-547532763520] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:57:35 [INFO    ] [6322-547532763520] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:57:41 [INFO    ] [6322-547532763520] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:57:41 [INFO    ] [6322-547532763520] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:57:45 [INFO    ] [6322-547532763520] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:57:45 [INFO    ] [6322-547532763520] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:59:07 [INFO    ] [6322-547951256768] __main__: Shutdown signal received
+2025-12-02 19:59:07 [INFO    ] [6322-547951256768] app.state_machine: Stopping state machine...
+2025-12-02 19:59:07 [INFO    ] [6322-547524309376] app.state_machine: Main logic loop stopped
+2025-12-02 19:59:07 [INFO    ] [6322-547498946944] app.state_machine: RFID reader loop stopped
+2025-12-02 19:59:07 [INFO    ] [6322-547507401088] app.state_machine: Motion sensor loop stopped
+2025-12-02 19:59:07 [INFO    ] [6322-547515855232] app.state_machine: LED control loop stopped
+2025-12-02 19:59:07 [INFO    ] [6322-546937237888] app.state_machine: Task processor loop stopped
+2025-12-02 19:59:09 [INFO    ] [6322-547951256768] app.state_machine: Hardware cleanup complete
+2025-12-02 19:59:09 [WARNING ] [6322-547951256768] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 19:59:09 [INFO    ] [6322-547951256768] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 19:59:09 [INFO    ] [6322-547951256768] app.state_machine: State machine stopped
+2025-12-02 19:59:10 [INFO    ] [6322-547951256768] __main__: AnLex Guard shutdown complete
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] root: Logging system initialized
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] __main__: ============================================================
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] __main__: AnLex Guard Security System Starting...
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] __main__: ============================================================
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.config: Loaded 2 authorized RFID keys
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.state_machine: Initializing hardware...
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.sensors: RFID reader initialized
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.state_machine: Hardware initialization successful
+2025-12-02 19:59:15 [INFO    ] [6805-548638729408] app.state_machine: Initializing services...
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] services.email_service: Email service enabled: security@yourdomain.com -> your-email@example.com
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Services initialization successful
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: State machine initialization complete
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Starting state machine...
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 19:59:16 [INFO    ] [6805-547943870848] app.state_machine: Main logic loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: Main Logic
+2025-12-02 19:59:16 [INFO    ] [6805-547935416704] app.state_machine: LED control loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: LED Control
+2025-12-02 19:59:16 [INFO    ] [6805-547926962560] app.state_machine: Motion sensor loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: Motion Sensor
+2025-12-02 19:59:16 [INFO    ] [6805-547918508416] app.state_machine: RFID reader loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: RFID Reader
+2025-12-02 19:59:16 [INFO    ] [6805-547910054272] app.state_machine: Environmental sensors loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: Environmental
+2025-12-02 19:59:16 [INFO    ] [6805-547901600128] app.state_machine: Task processor loop started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: Started thread: Task Processor
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:59:16 [INFO    ] [6805-548290687360] services.adafruit_service: Adafruit IO connected
+2025-12-02 19:59:16 [INFO    ] [6805-548290687360] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 19:59:16 [INFO    ] [6805-548290687360] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 19:59:16 [INFO    ] [6805-548290687360] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 19:59:16 [INFO    ] [6805-548290687360] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] app.state_machine: State machine started successfully
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] __main__: State machine initialized and started
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] api.routes: API routes registered
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] api.app: Flask application created
+2025-12-02 19:59:16 [INFO    ] [6805-548638729408] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 19:59:25 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 19:59:25 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 19:59:27 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 19:59:27 [INFO    ] [6805-548290687360] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 19:59:27 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 19:59:29 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 19:59:29 [INFO    ] [6805-548290687360] hardware.actuators: Locking servo to 90°
+2025-12-02 19:59:29 [INFO    ] [6805-548290687360] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 19:59:29 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 19:59:30 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 19:59:30 [INFO    ] [6805-548290687360] hardware.actuators: Unlocking servo to 0°
+2025-12-02 19:59:31 [INFO    ] [6805-548290687360] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 19:59:31 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 19:59:32 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:59:32 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 19:59:37 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 19:59:37 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:00:30 [INFO    ] [6805-547918508416] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 20:00:30 [INFO    ] [6805-547918508416] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 20:00:30 [INFO    ] [6805-547918508416] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 20:00:30 [INFO    ] [6805-547918508416] hardware.actuators: Locking servo to 90°
+2025-12-02 20:00:30 [INFO    ] [6805-547918508416] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 20:00:31 [WARNING ] [6805-547926962560] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 20:00:31 [INFO    ] [6805-547926962560] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 20:00:31 [ERROR   ] [6805-547901600128] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 20:00:31 [ERROR   ] [6805-547901600128] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 20:00:35 [INFO    ] [6805-547918508416] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 20:00:35 [INFO    ] [6805-547918508416] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 20:00:35 [INFO    ] [6805-547918508416] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 20:00:35 [INFO    ] [6805-547918508416] hardware.actuators: Unlocking servo to 0°
+2025-12-02 20:00:36 [INFO    ] [6805-547918508416] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 20:01:01 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:01:01 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:01:03 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 20:01:03 [INFO    ] [6805-548290687360] hardware.actuators: Locking servo to 90°
+2025-12-02 20:01:03 [INFO    ] [6805-548290687360] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 20:01:03 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 20:01:06 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 20:01:06 [INFO    ] [6805-548290687360] hardware.actuators: Unlocking servo to 0°
+2025-12-02 20:01:06 [INFO    ] [6805-548290687360] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 20:01:06 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 20:03:02 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:03:02 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:04:30 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:04:30 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:05:42 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:05:42 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:06:11 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:06:11 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:20:09 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:20:09 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:21:43 [INFO    ] [6805-547918508416] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 20:21:43 [INFO    ] [6805-547918508416] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 20:21:43 [INFO    ] [6805-547918508416] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 20:21:43 [INFO    ] [6805-547918508416] hardware.actuators: Locking servo to 90°
+2025-12-02 20:21:44 [INFO    ] [6805-547918508416] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 20:21:44 [WARNING ] [6805-547926962560] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 20:21:44 [INFO    ] [6805-547926962560] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 20:21:44 [ERROR   ] [6805-547901600128] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 20:21:44 [ERROR   ] [6805-547901600128] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 601, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 20:22:00 [INFO    ] [6805-547918508416] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 20:22:00 [INFO    ] [6805-547918508416] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 20:22:00 [INFO    ] [6805-547918508416] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 20:22:00 [INFO    ] [6805-547918508416] hardware.actuators: Unlocking servo to 0°
+2025-12-02 20:22:00 [INFO    ] [6805-547918508416] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 20:22:02 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:02 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:05 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:05 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:06 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:06 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:08 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:08 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:10 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:10 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:17 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:17 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:25 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 20:22:25 [INFO    ] [6805-548290687360] hardware.actuators: Locking servo to 90°
+2025-12-02 20:22:25 [INFO    ] [6805-548290687360] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 20:22:25 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 20:22:27 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 20:22:27 [INFO    ] [6805-548290687360] hardware.actuators: Unlocking servo to 0°
+2025-12-02 20:22:27 [INFO    ] [6805-548290687360] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 20:22:27 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 20:22:30 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:22:30 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:22:32 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: led_control = blink
+2025-12-02 20:22:32 [INFO    ] [6805-548290687360] app.state_machine: LED blinking (slow) via Adafruit IO
+2025-12-02 20:22:37 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:37 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:38 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:38 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:38 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:38 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:39 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:39 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:22:40 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:22:40 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:23:08 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: buzzer_control = beep
+2025-12-02 20:23:08 [INFO    ] [6805-548290687360] app.state_machine: Buzzer beep via Adafruit IO
+2025-12-02 20:23:20 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = lock
+2025-12-02 20:23:20 [INFO    ] [6805-548290687360] hardware.actuators: Locking servo to 90°
+2025-12-02 20:23:21 [INFO    ] [6805-548290687360] app.state_machine: Servo locked via Adafruit IO
+2025-12-02 20:23:21 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_LOCK - Remote control via Adafruit IO
+2025-12-02 20:23:23 [INFO    ] [6805-548290687360] services.adafruit_service: Control command received: servo_control = unlock
+2025-12-02 20:23:23 [INFO    ] [6805-548290687360] hardware.actuators: Unlocking servo to 0°
+2025-12-02 20:23:24 [INFO    ] [6805-548290687360] app.state_machine: Servo unlocked via Adafruit IO
+2025-12-02 20:23:24 [INFO    ] [6805-548290687360] app.state_machine: EVENT: SERVO_UNLOCK - Remote control via Adafruit IO
+2025-12-02 20:38:45 [INFO    ] [6805-548638729408] __main__: Shutdown signal received
+2025-12-02 20:38:45 [INFO    ] [6805-548638729408] app.state_machine: Stopping state machine...
+2025-12-02 20:38:45 [INFO    ] [6805-547943870848] app.state_machine: Main logic loop stopped
+2025-12-02 20:38:45 [INFO    ] [6805-547926962560] app.state_machine: Motion sensor loop stopped
+2025-12-02 20:38:45 [INFO    ] [6805-547901600128] app.state_machine: Task processor loop stopped
+2025-12-02 20:38:45 [INFO    ] [6805-547918508416] app.state_machine: RFID reader loop stopped
+2025-12-02 20:38:46 [INFO    ] [6805-547935416704] app.state_machine: LED control loop stopped
+2025-12-02 20:38:48 [INFO    ] [6805-548638729408] app.state_machine: Hardware cleanup complete
+2025-12-02 20:38:48 [WARNING ] [6805-548638729408] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 20:38:48 [INFO    ] [6805-548638729408] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 20:38:48 [INFO    ] [6805-548638729408] app.state_machine: State machine stopped
+2025-12-02 20:38:48 [INFO    ] [6805-548638729408] __main__: AnLex Guard shutdown complete

@@ -21,16 +21,31 @@ class LED:
             gpio_pin: BCM GPIO pin number
         """
         self.gpio_pin = gpio_pin
-        self.led = GPIOZeroLED(gpio_pin)
+        # underlying gpiozero LED instance
+        self._gpio_led = GPIOZeroLED(gpio_pin)
+        # when True, background loops should be suspended (blink will set this)
+        self._suspend_background = False
         logger.info(f"LED initialized on GPIO {gpio_pin}")
     
-    def on(self):
-        """Turn LED on"""
-        self.led.on()
+    def on(self, force: bool = False):
+        """Turn LED on
+
+        Args:
+            force: if True, apply regardless of background suspend (used by blink)
+        """
+        if self._suspend_background and not force:
+            return
+        self._gpio_led.on()
     
-    def off(self):
-        """Turn LED off"""
-        self.led.off()
+    def off(self, force: bool = False):
+        """Turn LED off
+
+        Args:
+            force: if True, apply regardless of background suspend (used by blink)
+        """
+        if self._suspend_background and not force:
+            return
+        self._gpio_led.off()
     
     def blink(self, count: int = 3, on_time: float = 0.1, off_time: float = 0.1):
         """
@@ -41,19 +56,31 @@ class LED:
             on_time: Time LED is on (seconds)
             off_time: Time LED is off (seconds)
         """
-        for _ in range(count):
-            self.off()
-            time.sleep(on_time)
-            self.on()
-            time.sleep(off_time)
-            self.on()
-            time.sleep(off_time)
-            self.on()
-            time.sleep(off_time) 
+        # Suspend background control so the LED loop won't override our quick sequence
+        prev_suspend = self._suspend_background
+        self._suspend_background = True
+
+        try:
+            # Ensure LED starts OFF so quick blinks are visible
+            self.off(force=True)
+            time.sleep(0.05)
+
+            for _ in range(count):
+                self.on(force=True)
+                time.sleep(on_time)
+                self.off(force=True)
+                time.sleep(off_time)
+
+        finally:
+            # Restore background control state
+            self._suspend_background = prev_suspend
     def cleanup(self):
         """Cleanup GPIO resources"""
-        self.off()
-        self.led.close()
+        self.off(force=True)
+        try:
+            self._gpio_led.close()
+        except Exception:
+            pass
 
 class Buzzer:
     """Active Buzzer with PWM"""

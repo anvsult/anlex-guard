@@ -776,8 +776,9 @@
           container.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">No events logged yet</div>';
           return;
         }
-
-        data.logs.forEach((log) => {
+        // Render logs oldest-first (API returns reverse-chronological)
+        const logs = data.logs.slice().reverse();
+        logs.forEach((log) => {
           const entry = document.createElement("div");
           entry.className = `log-entry ${log.type}`;
           const time = new Date(log.timestamp).toLocaleString("en-US", {

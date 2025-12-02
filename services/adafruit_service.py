@@ -52,8 +52,15 @@ class AdafruitService:
         self.client.on_disconnect = self._on_disconnect
         self.client.on_message = self._on_message
         
-        # Control feeds to subscribe to
-        self._control_feeds = ['led_control', 'buzzer_control', 'servo_control', 'stealth_mode']
+        # Control feeds to subscribe to (include mode/alarm so Pi can react)
+        self._control_feeds = [
+            'led_control',
+            'buzzer_control',
+            'servo_control',
+            'stealth_mode',
+            'mode',
+            'alarm'
+        ]
         
         logger.info("Adafruit IO service initialized")
     

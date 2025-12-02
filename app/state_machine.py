@@ -325,6 +325,24 @@ class SecurityStateMachine:
                     self.stealth_mode = False
                     logger.info("Stealth mode DISABLED via Adafruit IO")
                     self._log_event("STEALTH_MODE", "Disabled via Adafruit IO")
+            
+            elif feed_name == 'mode':
+                # Mode control: can be 'armed'/'disarmed' or 1/0
+                if value in ['armed', '1', 'on', 'true']:
+                    if self._mode == SystemMode.DISARMED:
+                        logger.info("ARM command received via Adafruit IO")
+                        self._log_event("REMOTE_ARM", "Adafruit IO command")
+                        self.arm_system(source="Adafruit IO")
+                    else:
+                        logger.info("ARM command via Adafruit IO ignored (already armed)")
+
+                elif value in ['disarmed', '0', 'off', 'false']:
+                    if self._mode != SystemMode.DISARMED:
+                        logger.info("DISARM command received via Adafruit IO")
+                        self._log_event("REMOTE_DISARM", "Adafruit IO command")
+                        self.disarm_system(source="Adafruit IO")
+                    else:
+                        logger.info("DISARM command via Adafruit IO ignored (already disarmed)")
         
         except Exception as e:
             logger.error(f"Error handling Adafruit control command: {e}", exc_info=True)

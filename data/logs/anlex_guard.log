@@ -3341,3 +3341,539 @@ RuntimeError: Camera capture failed: Camera not available
 2025-12-02 20:38:48 [INFO    ] [6805-548638729408] services.adafruit_service: Adafruit IO disconnected
 2025-12-02 20:38:48 [INFO    ] [6805-548638729408] app.state_machine: State machine stopped
 2025-12-02 20:38:48 [INFO    ] [6805-548638729408] __main__: AnLex Guard shutdown complete
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] root: Logging system initialized
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] __main__: ============================================================
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] __main__: AnLex Guard Security System Starting...
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] __main__: ============================================================
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.config: Loaded 2 authorized RFID keys
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Initializing hardware...
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.sensors: RFID reader initialized
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Hardware initialization successful
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Initializing services...
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] services.email_service: Email service enabled (SMTP): alejandromarquezvega311@gmail.com -> chronyyx@gmail.com
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Services initialization successful
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: State machine initialization complete
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Starting state machine...
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 21:06:08 [INFO    ] [12190-547821187456] app.state_machine: Main logic loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: Main Logic
+2025-12-02 21:06:08 [INFO    ] [12190-547474108800] app.state_machine: LED control loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: LED Control
+2025-12-02 21:06:08 [INFO    ] [12190-547465654656] app.state_machine: Motion sensor loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: Motion Sensor
+2025-12-02 21:06:08 [INFO    ] [12190-547457200512] app.state_machine: RFID reader loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: RFID Reader
+2025-12-02 21:06:08 [INFO    ] [12190-547448746368] app.state_machine: Environmental sensors loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: Environmental
+2025-12-02 21:06:08 [INFO    ] [12190-547440292224] app.state_machine: Task processor loop started
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] app.state_machine: Started thread: Task Processor
+2025-12-02 21:06:08 [INFO    ] [12190-548177917120] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:06:08 [INFO    ] [12190-547829838208] services.adafruit_service: Adafruit IO connected
+2025-12-02 21:06:08 [INFO    ] [12190-547829838208] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 21:06:08 [INFO    ] [12190-547829838208] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 21:06:08 [INFO    ] [12190-547829838208] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 21:06:08 [INFO    ] [12190-547829838208] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 21:06:09 [INFO    ] [12190-548177917120] app.state_machine: State machine started successfully
+2025-12-02 21:06:09 [INFO    ] [12190-548177917120] __main__: State machine initialized and started
+2025-12-02 21:06:09 [INFO    ] [12190-548177917120] api.routes: API routes registered
+2025-12-02 21:06:09 [INFO    ] [12190-548177917120] api.app: Flask application created
+2025-12-02 21:06:09 [INFO    ] [12190-548177917120] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 21:07:08 [INFO    ] [12190-547440292224] services.adafruit_service: Published via MQTT to temperature: 25.0
+2025-12-02 21:07:08 [INFO    ] [12190-547440292224] services.adafruit_service: Published via MQTT to humidity: 22.0
+2025-12-02 21:08:03 [INFO    ] [12190-548177917120] __main__: Shutdown signal received
+2025-12-02 21:08:03 [INFO    ] [12190-548177917120] app.state_machine: Stopping state machine...
+2025-12-02 21:08:03 [INFO    ] [12190-547465654656] app.state_machine: Motion sensor loop stopped
+2025-12-02 21:08:03 [INFO    ] [12190-547821187456] app.state_machine: Main logic loop stopped
+2025-12-02 21:08:03 [INFO    ] [12190-547474108800] app.state_machine: LED control loop stopped
+2025-12-02 21:08:03 [INFO    ] [12190-547457200512] app.state_machine: RFID reader loop stopped
+2025-12-02 21:08:03 [INFO    ] [12190-547440292224] app.state_machine: Task processor loop stopped
+2025-12-02 21:08:05 [INFO    ] [12190-548177917120] app.state_machine: Hardware cleanup complete
+2025-12-02 21:08:05 [WARNING ] [12190-548177917120] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 21:08:06 [INFO    ] [12190-548177917120] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 21:08:06 [INFO    ] [12190-548177917120] app.state_machine: State machine stopped
+2025-12-02 21:08:06 [INFO    ] [12190-548177917120] __main__: AnLex Guard shutdown complete
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] root: Logging system initialized
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] __main__: ============================================================
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] __main__: AnLex Guard Security System Starting...
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] __main__: ============================================================
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.config: Loaded 2 authorized RFID keys
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Initializing hardware...
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.sensors: RFID reader initialized
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Hardware initialization successful
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Initializing services...
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] services.email_service: Email service enabled (SMTP): alejandromarquezvega311@gmail.com -> chronyyx@gmail.com
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Services initialization successful
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: State machine initialization complete
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Starting state machine...
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 21:08:10 [INFO    ] [12418-547769414016] app.state_machine: Main logic loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: Main Logic
+2025-12-02 21:08:10 [INFO    ] [12418-547760959872] app.state_machine: LED control loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: LED Control
+2025-12-02 21:08:10 [INFO    ] [12418-547752505728] app.state_machine: Motion sensor loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: Motion Sensor
+2025-12-02 21:08:10 [INFO    ] [12418-547272782208] app.state_machine: RFID reader loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: RFID Reader
+2025-12-02 21:08:10 [INFO    ] [12418-547264328064] app.state_machine: Environmental sensors loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: Environmental
+2025-12-02 21:08:10 [INFO    ] [12418-547255873920] app.state_machine: Task processor loop started
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] app.state_machine: Started thread: Task Processor
+2025-12-02 21:08:10 [INFO    ] [12418-548126115008] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:08:10 [INFO    ] [12418-547778064768] services.adafruit_service: Adafruit IO connected
+2025-12-02 21:08:10 [INFO    ] [12418-547778064768] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 21:08:10 [INFO    ] [12418-547778064768] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 21:08:10 [INFO    ] [12418-547778064768] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 21:08:10 [INFO    ] [12418-547778064768] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 21:08:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to temperature: 25.0
+2025-12-02 21:08:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to humidity: 23.0
+2025-12-02 21:08:11 [INFO    ] [12418-548126115008] app.state_machine: State machine started successfully
+2025-12-02 21:08:11 [INFO    ] [12418-548126115008] __main__: State machine initialized and started
+2025-12-02 21:08:11 [INFO    ] [12418-548126115008] api.routes: API routes registered
+2025-12-02 21:08:11 [INFO    ] [12418-548126115008] api.app: Flask application created
+2025-12-02 21:08:11 [INFO    ] [12418-548126115008] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 21:08:52 [INFO    ] [12418-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:08:52 [INFO    ] [12418-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:08:52 [INFO    ] [12418-547272782208] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 21:08:52 [INFO    ] [12418-547272782208] hardware.actuators: Locking servo to 90°
+2025-12-02 21:08:52 [INFO    ] [12418-547272782208] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 21:08:52 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:08:52.638771+00:00", "type": "ARM", "details": "Source: RFID:565967042481", "mode": "armed"}
+2025-12-02 21:08:52 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to mode: armed
+2025-12-02 21:08:52 [WARNING ] [12418-547752505728] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 21:08:52 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:08:52 [INFO    ] [12418-547752505728] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 21:08:52 [ERROR   ] [12418-547255873920] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:08:52 [ERROR   ] [12418-547255873920] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 604, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:08:52 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:08:52.808356+00:00", "type": "MOTION_DETECTED", "details": "Entering pre-alarm state", "mode": "pre_alarm"}
+2025-12-02 21:08:53 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:08:54 [INFO    ] [12418-547272782208] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:08:54 [INFO    ] [12418-547272782208] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:08:54 [INFO    ] [12418-547272782208] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 21:08:54 [INFO    ] [12418-547272782208] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:08:55 [INFO    ] [12418-547272782208] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 21:08:55 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:08:55.161949+00:00", "type": "DISARM", "details": "Source: RFID:565967042481, Previous: pre_alarm", "mode": "disarmed"}
+2025-12-02 21:08:55 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to mode: disarmed
+2025-12-02 21:08:55 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to alarm: 0
+2025-12-02 21:09:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to temperature: 25.0
+2025-12-02 21:09:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:10:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:10:11 [INFO    ] [12418-547255873920] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:10:57 [INFO    ] [12418-548126115008] __main__: Shutdown signal received
+2025-12-02 21:10:57 [INFO    ] [12418-548126115008] app.state_machine: Stopping state machine...
+2025-12-02 21:10:57 [INFO    ] [12418-547769414016] app.state_machine: Main logic loop stopped
+2025-12-02 21:10:57 [INFO    ] [12418-547760959872] app.state_machine: LED control loop stopped
+2025-12-02 21:10:57 [INFO    ] [12418-547272782208] app.state_machine: RFID reader loop stopped
+2025-12-02 21:10:57 [INFO    ] [12418-547752505728] app.state_machine: Motion sensor loop stopped
+2025-12-02 21:10:58 [INFO    ] [12418-547255873920] app.state_machine: Task processor loop stopped
+2025-12-02 21:10:59 [INFO    ] [12418-548126115008] app.state_machine: Hardware cleanup complete
+2025-12-02 21:11:00 [WARNING ] [12418-548126115008] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 21:11:00 [INFO    ] [12418-548126115008] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 21:11:00 [INFO    ] [12418-548126115008] app.state_machine: State machine stopped
+2025-12-02 21:11:00 [INFO    ] [12418-548126115008] __main__: AnLex Guard shutdown complete
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] root: Logging system initialized
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] __main__: ============================================================
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] __main__: AnLex Guard Security System Starting...
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] __main__: ============================================================
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.config: Loaded 2 authorized RFID keys
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.state_machine: Initializing hardware...
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.sensors: RFID reader initialized
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.state_machine: Hardware initialization successful
+2025-12-02 21:11:03 [INFO    ] [12698-548659012800] app.state_machine: Initializing services...
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] services.email_service: Email service enabled (SMTP): alejandromarquezvega311@gmail.com -> chronyyx@gmail.com
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Services initialization successful
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: State machine initialization complete
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Starting state machine...
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 21:11:04 [INFO    ] [12698-548302483840] app.state_machine: Main logic loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: Main Logic
+2025-12-02 21:11:04 [INFO    ] [12698-548293833088] app.state_machine: LED control loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: LED Control
+2025-12-02 21:11:04 [INFO    ] [12698-547809653120] app.state_machine: Motion sensor loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: Motion Sensor
+2025-12-02 21:11:04 [INFO    ] [12698-547801198976] app.state_machine: RFID reader loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: RFID Reader
+2025-12-02 21:11:04 [INFO    ] [12698-547792744832] app.state_machine: Environmental sensors loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: Environmental
+2025-12-02 21:11:04 [INFO    ] [12698-547784290688] app.state_machine: Task processor loop started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: Started thread: Task Processor
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:11:04 [INFO    ] [12698-548310937984] services.adafruit_service: Adafruit IO connected
+2025-12-02 21:11:04 [INFO    ] [12698-548310937984] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 21:11:04 [INFO    ] [12698-548310937984] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 21:11:04 [INFO    ] [12698-548310937984] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 21:11:04 [INFO    ] [12698-548310937984] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] app.state_machine: State machine started successfully
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] __main__: State machine initialized and started
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] api.routes: API routes registered
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] api.app: Flask application created
+2025-12-02 21:11:04 [INFO    ] [12698-548659012800] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 21:11:14 [INFO    ] [12698-547801198976] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:11:14 [INFO    ] [12698-547801198976] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:11:14 [INFO    ] [12698-547801198976] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 21:11:14 [INFO    ] [12698-547801198976] hardware.actuators: Locking servo to 90°
+2025-12-02 21:11:14 [INFO    ] [12698-547801198976] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 21:11:14 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:11:14.872349+00:00", "type": "ARM", "details": "Source: RFID:565967042481", "mode": "armed"}
+2025-12-02 21:11:14 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to mode: armed
+2025-12-02 21:11:15 [WARNING ] [12698-547809653120] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 21:11:15 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:11:15 [INFO    ] [12698-547809653120] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 21:11:15 [ERROR   ] [12698-547784290688] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:11:15 [ERROR   ] [12698-547784290688] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 604, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:11:15 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:11:15.168352+00:00", "type": "MOTION_DETECTED", "details": "Entering pre-alarm state", "mode": "pre_alarm"}
+2025-12-02 21:11:16 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:11:17 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:11:18 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:11:19 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:11:19 [INFO    ] [12698-547801198976] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:11:19 [INFO    ] [12698-547801198976] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:11:19 [INFO    ] [12698-547801198976] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 21:11:19 [INFO    ] [12698-547801198976] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:11:20 [INFO    ] [12698-547801198976] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 21:11:20 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:11:20.211438+00:00", "type": "DISARM", "details": "Source: RFID:565967042481, Previous: pre_alarm", "mode": "disarmed"}
+2025-12-02 21:11:20 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to mode: disarmed
+2025-12-02 21:11:20 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to alarm: 0
+2025-12-02 21:12:04 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:12:04 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to humidity: 22.0
+2025-12-02 21:13:04 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:13:04 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:16:05 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:16:05 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:17:05 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:17:05 [INFO    ] [12698-547784290688] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:17:48 [INFO    ] [12698-548659012800] __main__: Shutdown signal received
+2025-12-02 21:17:48 [INFO    ] [12698-548659012800] app.state_machine: Stopping state machine...
+2025-12-02 21:17:48 [INFO    ] [12698-548302483840] app.state_machine: Main logic loop stopped
+2025-12-02 21:17:48 [INFO    ] [12698-547809653120] app.state_machine: Motion sensor loop stopped
+2025-12-02 21:17:48 [INFO    ] [12698-547801198976] app.state_machine: RFID reader loop stopped
+2025-12-02 21:17:48 [INFO    ] [12698-548293833088] app.state_machine: LED control loop stopped
+2025-12-02 21:17:48 [INFO    ] [12698-547784290688] app.state_machine: Task processor loop stopped
+2025-12-02 21:17:50 [INFO    ] [12698-548659012800] app.state_machine: Hardware cleanup complete
+2025-12-02 21:17:51 [WARNING ] [12698-548659012800] services.adafruit_service: Adafruit IO disconnected: rc=0
+2025-12-02 21:17:51 [INFO    ] [12698-548659012800] services.adafruit_service: Adafruit IO disconnected
+2025-12-02 21:17:51 [INFO    ] [12698-548659012800] app.state_machine: State machine stopped
+2025-12-02 21:17:51 [INFO    ] [12698-548659012800] __main__: AnLex Guard shutdown complete
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] root: Logging system initialized
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] __main__: ============================================================
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] __main__: AnLex Guard Security System Starting...
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] __main__: ============================================================
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.config: Loaded environment from /home/chronyx/anlex-guard/.env
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.config: Loaded configuration from /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.config: Loaded 2 authorized RFID keys
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] __main__: Configuration loaded: /home/chronyx/anlex-guard/config/config.json
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Initializing hardware...
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.sensors: PIR sensor initialized on GPIO 17
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.sensors: DHT sensor initialized on D4
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.sensors: RFID reader initialized
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.camera: Camera initialized: device 0, 1280x720
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.actuators: LED initialized on GPIO 27
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.actuators: Buzzer initialized on GPIO 13
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.actuators: Servo initialized on GPIO 18
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Hardware initialization successful
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Initializing services...
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] services.adafruit_service: Adafruit IO service initialized
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] services.email_service: Email service enabled (SMTP): alejandromarquezvega311@gmail.com -> chronyyx@gmail.com
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] database_interface: Local database initialized.
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] services.storage_service: Storage service initialized: web/static/images
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Services initialization successful
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: State machine initialization complete
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Starting state machine...
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] services.adafruit_service: Adafruit IO connection initiated
+2025-12-02 21:17:53 [INFO    ] [13327-547488461184] app.state_machine: Main logic loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: Main Logic
+2025-12-02 21:17:53 [INFO    ] [13327-547004346752] app.state_machine: LED control loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: LED Control
+2025-12-02 21:17:53 [INFO    ] [13327-546995892608] app.state_machine: Motion sensor loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: Motion Sensor
+2025-12-02 21:17:53 [INFO    ] [13327-546987438464] app.state_machine: RFID reader loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: RFID Reader
+2025-12-02 21:17:53 [INFO    ] [13327-546978984320] app.state_machine: Environmental sensors loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: Environmental
+2025-12-02 21:17:53 [INFO    ] [13327-546970530176] app.state_machine: Task processor loop started
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] app.state_machine: Started thread: Task Processor
+2025-12-02 21:17:53 [INFO    ] [13327-547866977472] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:17:53 [INFO    ] [13327-547496915328] services.adafruit_service: Adafruit IO connected
+2025-12-02 21:17:53 [INFO    ] [13327-547496915328] services.adafruit_service: Subscribed to control feed: led_control
+2025-12-02 21:17:53 [INFO    ] [13327-547496915328] services.adafruit_service: Subscribed to control feed: buzzer_control
+2025-12-02 21:17:53 [INFO    ] [13327-547496915328] services.adafruit_service: Subscribed to control feed: servo_control
+2025-12-02 21:17:53 [INFO    ] [13327-547496915328] services.adafruit_service: Subscribed to control feed: stealth_mode
+2025-12-02 21:17:54 [INFO    ] [13327-547866977472] app.state_machine: State machine started successfully
+2025-12-02 21:17:54 [INFO    ] [13327-547866977472] __main__: State machine initialized and started
+2025-12-02 21:17:54 [INFO    ] [13327-547866977472] api.routes: API routes registered
+2025-12-02 21:17:54 [INFO    ] [13327-547866977472] api.app: Flask application created
+2025-12-02 21:17:54 [INFO    ] [13327-547866977472] __main__: Starting Flask web server on http://0.0.0.0:5000
+2025-12-02 21:18:54 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to temperature: 27.0
+2025-12-02 21:18:54 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:19:20 [INFO    ] [13327-546987438464] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:19:20 [INFO    ] [13327-546987438464] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:19:20 [INFO    ] [13327-546987438464] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 21:19:20 [INFO    ] [13327-546987438464] hardware.actuators: Locking servo to 90°
+2025-12-02 21:19:21 [INFO    ] [13327-546987438464] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 21:19:21 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:19:21.413597+00:00", "type": "ARM", "details": "Source: RFID:565967042481", "mode": "armed"}
+2025-12-02 21:19:21 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to mode: armed
+2025-12-02 21:19:21 [WARNING ] [13327-546995892608] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 21:19:21 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:21 [INFO    ] [13327-546995892608] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 21:19:21 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:19:21 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:19:22 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:19:21.880825+00:00", "type": "MOTION_DETECTED", "details": "Entering pre-alarm state", "mode": "pre_alarm"}
+2025-12-02 21:19:22 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:23 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:24 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:25 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:26 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:19:27 [INFO    ] [13327-546987438464] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:19:27 [INFO    ] [13327-546987438464] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:19:27 [INFO    ] [13327-546987438464] app.state_machine: DISARMING system (was: pre_alarm, source: RFID:565967042481)
+2025-12-02 21:19:27 [INFO    ] [13327-546987438464] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:19:28 [INFO    ] [13327-546987438464] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: pre_alarm
+2025-12-02 21:19:28 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:19:28.013502+00:00", "type": "DISARM", "details": "Source: RFID:565967042481, Previous: pre_alarm", "mode": "disarmed"}
+2025-12-02 21:19:28 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to mode: disarmed
+2025-12-02 21:19:28 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to alarm: 0
+2025-12-02 21:19:55 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to temperature: 26.0
+2025-12-02 21:19:55 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to humidity: 21.0
+2025-12-02 21:21:36 [INFO    ] [13327-546987438464] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:21:36 [INFO    ] [13327-546987438464] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:21:36 [INFO    ] [13327-546987438464] app.state_machine: ARMING system (source: RFID:565967042481)
+2025-12-02 21:21:36 [INFO    ] [13327-546987438464] hardware.actuators: Locking servo to 90°
+2025-12-02 21:21:36 [INFO    ] [13327-546987438464] app.state_machine: EVENT: ARM - Source: RFID:565967042481
+2025-12-02 21:21:37 [WARNING ] [13327-546995892608] app.state_machine: MOTION DETECTED! Entering PRE-ALARM state
+2025-12-02 21:21:37 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:21:36.984850+00:00", "type": "ARM", "details": "Source: RFID:565967042481", "mode": "armed"}
+2025-12-02 21:21:37 [INFO    ] [13327-546995892608] app.state_machine: EVENT: MOTION_DETECTED - Entering pre-alarm state
+2025-12-02 21:21:37 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to mode: armed
+2025-12-02 21:21:37 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:37 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:21:37 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:21:37 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:21:37.172468+00:00", "type": "MOTION_DETECTED", "details": "Entering pre-alarm state", "mode": "pre_alarm"}
+2025-12-02 21:21:37 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:38 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:39 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:40 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:41 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:42 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:43 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:44 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:45 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:47 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:47 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:48 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:49 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:50 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:51 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:52 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:53 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:54 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:55 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:56 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:57 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:58 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:21:59 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:00 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:01 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:02 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:03 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:04 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:05 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:06 [WARNING ] [13327-547488461184] app.state_machine: PRE-ALARM EXPIRED! Triggering ALARM
+2025-12-02 21:22:06 [INFO    ] [13327-547488461184] hardware.actuators: Siren started
+2025-12-02 21:22:06 [INFO    ] [13327-547488461184] app.state_machine: EVENT: ALARM_TRIGGERED - Pre-alarm timeout expired
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] services.email_service: Email sent successfully via SMTP: 🚨 AnLex Guard: ALARM TRIGGERED!
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] app.state_machine: Email alert sent successfully
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:22:06.863727+00:00", "type": "ALARM_TRIGGERED", "details": "Pre-alarm timeout expired", "mode": "alarm"}
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to alarm: 1
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:08 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:22:08 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:22:08 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:08 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:22:08 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:22:09 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:09 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:22:09 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:22:10 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to motion: 1
+2025-12-02 21:22:10 [ERROR   ] [13327-546970530176] hardware.camera: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+2025-12-02 21:22:10 [ERROR   ] [13327-546970530176] app.state_machine: Failed to capture/upload photo: Camera capture failed: Camera not available
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 52, in capture
+    raise RuntimeError("Camera not available")
+RuntimeError: Camera not available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chronyx/anlex-guard/app/state_machine.py", line 614, in _capture_and_upload_photo
+    filename = self.camera.capture()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/chronyx/anlex-guard/hardware/camera.py", line 80, in capture
+    raise RuntimeError(f"Camera capture failed: {e}")
+RuntimeError: Camera capture failed: Camera not available
+2025-12-02 21:22:10 [INFO    ] [13327-546987438464] hardware.sensors: RFID tag read: 565967042481
+2025-12-02 21:22:10 [INFO    ] [13327-546987438464] app.state_machine: Authorized RFID scan: 565967042481
+2025-12-02 21:22:10 [INFO    ] [13327-546987438464] app.state_machine: DISARMING system (was: alarm, source: RFID:565967042481)
+2025-12-02 21:22:10 [INFO    ] [13327-546987438464] hardware.actuators: Siren stopped
+2025-12-02 21:22:10 [INFO    ] [13327-546987438464] hardware.actuators: Unlocking servo to 0°
+2025-12-02 21:22:11 [INFO    ] [13327-546987438464] app.state_machine: EVENT: DISARM - Source: RFID:565967042481, Previous: alarm
+2025-12-02 21:22:11 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to event_log: {"timestamp": "2025-12-02T21:22:11.081992+00:00", "type": "DISARM", "details": "Source: RFID:565967042481, Previous: alarm", "mode": "disarmed"}
+2025-12-02 21:22:11 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to mode: disarmed
+2025-12-02 21:22:11 [INFO    ] [13327-546970530176] services.adafruit_service: Published via MQTT to alarm: 0

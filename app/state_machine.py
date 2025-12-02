@@ -17,6 +17,7 @@ from hardware.actuators import LED, Buzzer, Servo
 from services.adafruit_service import AdafruitService
 from services.email_service import EmailService
 from services.storage_service import StorageService
+from database_interface import DatabaseInterface
 
 logger = logging.getLogger(__name__)
 
@@ -134,6 +135,9 @@ class SecurityStateMachine:
                 from_email=email_config.get('alert_from'),
                 to_email=email_config.get('alert_to')
             )
+            
+            # Database Interface (Neon PostgreSQL)
+            self.database = DatabaseInterface(self.config._config)
             
             # Storage Service
             self.storage = StorageService(base_dir="web/static/images")
@@ -549,6 +553,12 @@ class SecurityStateMachine:
                 if temp is not None and humidity is not None:
                     logger.debug(f"Environment: {temp}°C, {humidity}%")
                     
+                    # Log to database
+                    try:
+                        self.database.log_environment(temp, humidity)
+                    except Exception as e:
+                        logger.error(f"Failed to log environment to database: {e}")
+                    
                     # Publish to cloud
                     self._task_queue.put(("publish", ("temperature", temp)))
                     self._task_queue.put(("publish", ("humidity", humidity)))
@@ -656,6 +666,12 @@ Please check your dashboard immediately.
         
         logger.info(f"EVENT: {event_type} - {details}")
         
+        # Log to database
+        try:
+            self.database.log_security(event_type, details, self._mode.value)
+        except Exception as e:
+            logger.error(f"Failed to log security event to database: {e}")
+        
         # Also publish event log trigger to Adafruit IO
         # Publish the full event JSON so the frontend can parse and display it
         try:
@@ -749,5 +765,12 @@ Please check your dashboard immediately.
         
         # Disconnect services
         self.adafruit.disconnect()
+        
+        # Close database connection
+        try:
+            self.database.close()
+            logger.info("Database connection closed")
+        except Exception as e:
+            logger.error(f"Error closing database: {e}")
         
         logger.info("State machine stopped")

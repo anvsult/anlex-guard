@@ -7,6 +7,9 @@ Werkzeug==3.0.1
 paho-mqtt==1.6.1
 requests==2.31.0
 
+# Database
+psycopg2-binary==2.9.9
+
 # Raspberry Pi GPIO
 gpiozero==2.0
 RPi.GPIO==0.7.1

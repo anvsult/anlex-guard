@@ -43,7 +43,7 @@ class DatabaseInterface:
         self.device_id = "anlex_pi_01"
         
         # Cloud connection string
-        self.pg_conn_str = os.getenv("DATABASE_URL")
+        self.pg_conn_str = os.getenv("NEON_DATABASE_URL")
         if self.pg_conn_str and self.pg_conn_str.startswith("postgres://"):
             self.pg_conn_str = self.pg_conn_str.replace("postgres://", "postgresql://", 1)
 

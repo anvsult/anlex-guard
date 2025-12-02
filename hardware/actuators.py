@@ -67,9 +67,17 @@ class LED:
 
             for _ in range(count):
                 self.on(force=True)
-                time.sleep(on_time)
+                time.sleep(0.1)
                 self.off(force=True)
-                time.sleep(off_time)
+                time.sleep(0.1)
+                self.on(force=True)
+                time.sleep(0.1)
+                self.off(force=True)
+                time.sleep(0.1)
+                self.on(force=True)
+                time.sleep(0.1)
+                self.off(force=True)
+                time.sleep(0.1)
 
         finally:
             # Restore background control state

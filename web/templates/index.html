@@ -640,7 +640,7 @@
         </div>
 
         <footer>
-            AnLex Guard Security System &copy; 2024 | Powered by Raspberry Pi
+            AnLex Guard Security System &copy; 2025 | Powered by Raspberry Pi
         </footer>
     </div>
 
@@ -777,7 +777,7 @@
           return;
         }
         // Render logs oldest-first (API returns reverse-chronological)
-        const logs = data.logs.slice().reverse();
+        // const logs = data.logs.slice().reverse();
         logs.forEach((log) => {
           const entry = document.createElement("div");
           entry.className = `log-entry ${log.type}`;
